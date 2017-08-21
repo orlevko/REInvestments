@@ -10,6 +10,55 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Exercise 1 
 
+```{r Define initial parametrs}
+# Initial deposit 
+deposit = 10000
+  
+# Interest rate
+i.rate = 0.06
+  
+# Time in years
+t.years = 1
+
+# Time in months
+t.months = t.years * 12
+```
+
+```{r Future value }
+# Future value 
+fv = deposit*(1 + i.rate)^(t.years)
+eay = (fv - deposit)/deposit
+list(fv, eay)
+
+# Future value (compund month)
+fv.cm = deposit*(1 + i.rate/12)^(t.months)
+eay.cm = (fv.cm - deposit)/deposit
+list(fv.cm, eay.cm)
+
+```
+
+
+```{r Present value}
+fv = 10616.78
+i.rate = 0.06
+t.years = 1
+t.months = t.years * 12
+
+# Present value
+pv = fv*(1/(1+i.rate)^(t.years))
+pv
+
+# Present value (compund month)
+pv = fv*(1/(1+i.rate/12)^(t.months))
+```
+
+```{r Annuity}
+
+```
+
+
+
+
 # Exercise 2 
 
 # Exercise 3 
