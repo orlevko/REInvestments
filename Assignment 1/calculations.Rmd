@@ -75,7 +75,7 @@ annuity.monthly = function(payment,i.rate,t.years){
 
 i.rate = 0.08
 t.years = 5
-payment = 2400
+payment = 1000
 
 annuity(payment,i.rate,t.years)
 annuity.monthly(payment,i.rate,t.years)
@@ -98,11 +98,13 @@ annuity.monthly.pv = function(payment,i.rate,t.years){
   return(fv)
 }
 
-i.rate = 0.08
-t.years = 0.5
-payment = 300*12
+i.rate = 0.1
+t.years = 15
+payment = 1000
 
 annuity.pv(payment,i.rate,t.years)
+(payment/i.rate)*(1-(1/(1+i.rate)^t.years))
+
 annuity.monthly.pv(payment,i.rate,t.years)
 ```
 

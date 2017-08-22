@@ -1,137 +1,101 @@
 ---
 title: "Mortgages assignment"
 output:
-  pdf_document: default
-  word_document: default
+  pdf_document:
+    number_sections: true
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+# Exercise 1
 
-## Define initial parametrs
+The basic annuity formula refers to the payment of an amount $P$ over $T$ periods , while the interest rate is equal to $i$. The present value of these payments is equal to:
 
-```{r Define initial parametrs}
-# Initial deposit 
-deposit = 10000
-  
-# Interest rate
-i.rate = 0.06
-  
-# Time in years
-t.years = 1
+\begin{equation}
+L = \frac{p}{i}[1 - \frac{1}{(1+i)^T}]
+\end{equation}
 
-# Time in months
-t.months = t.years * 12
+
+1. You know that that present value of an infinite sequence of payments $P$ evaluates at an interest rate $i$ is equal to $\frac{P}{i}$. Verify that the formula given above approaches that value if $T$ is large.
+1. Rewrite the formula in such a way that it gives the periodical payment $P$ that is needed to repay a loan of size $L$ in $T$ periods while the interest rate equals $i$.
+1. Suppose you want to buy a house with price €250,000.-. Since you didn’t save, the house has to be completely financed (the LTV at the time of buying the house equal 100%). The interest rate is 4%. The bank offers you an annuity mortgage with a term of 20 or 30 years. What is the annual amount you have to pay on interest and amortization per year in both cases? 
+1. With an annuity mortgage you qualify for mortgage interest deductibility. Your marginal tax rate is 52%. What is the difference between gross and net mortgage payment in year 1? Will it be higher or lower in year 2? Why?
+
+
+## Answers
+1. If $T$ gets large $\frac{1}{(1+i)^T}$ becomes very small. 
+1. Invert the annuity formula : 
+\begin{equation*}
+p = \frac{L*i}{1 - \frac{1}{(1+i)^T}}
+\end{equation*}
+1. Use the formula you derived above, the answers are 18,395.44 and 14,457.52.
+1. Remember that you can only subtract interest paid. Interest paid in the first year is 4% of €250,000.- = €10000. The difference between gross and net is therefore 52% of this amount of money = €5200. In year 2 the fiscal effect will be smaller because part of the loan has been repaid.
+```{r}
+# 1.3
+(250000*0.04)/(1-(1/(1.04)^20))
+(250000*0.04)/(1-(1/(1.04)^30))
+# 1.4
+(250000*0.04)*(0.52)
+((250000 - 250000*0.04)*0.04)*(0.52)
 ```
 
-## Future value
+# Exercise 2
 
-```{r Future value }
-# Future value 
-fv = deposit*(1 + i.rate)^(t.years)
-eay = (fv - deposit)/deposit
-list(fv, eay)
+John and Janice have bought a house five years ago. The price was €200,000 and it was financed completely with an annuity mortgage loan with an interest rate of 6% and a term of 30 years.
 
-# Future value (compund month)
-fv.cm = deposit*(1 + i.rate/12)^(t.months)
-eay.cm = (fv.cm - deposit)/deposit
-list(fv.cm, eay.cm)
+1. What is the annual payment John and Janice have to make to the bank?
+1. After 5 years the interest rate has decreased to 4%, and John and Janice consider refinancing their mortgage loan. What is the outstanding amount of the loan after 5 years and what will be the annual payment if it is transferred to an annuity mortgage loan with an interest rate of 4% and a term of 25 years?
+1. Alternatively, John and Janice might consider moving to another house. What is the maximum amount they are able to pay for their house at the interest rate of 4% if the term of the new loan would be 25 years (based on their current annual payments)?
 
-```
+## Answers
+1. Similarly with (1.3) - 14,529.78.
+1. The outstanding amount is the present value of an annuity that pays 14529.78 over a term of 25-5=20 years, while the interest rate is 6%: 166,655.4. The annual payment of the new loan is: 10,667.94.
+1. The idea is that the decrease in interest rate is used to take a larger loan while keeping the annual payments unchanged. The size of this loan is the present value of an annuity that pays 14,529.78 annually over 25 years while the interest rate equals 4%. 
 
-
-```{r Present value}
-fv = 10616.78
-i.rate = 0.06
-t.years = 1
-t.months = t.years * 12
-
-# Present value
-pv = fv*(1/(1+i.rate)^(t.years))
-pv
-
-# Present value (compund month)
-pv = fv*(1/(1+i.rate/12)^(t.months))
-```
-
-## Annuity
-
-```{r Annuity}
-annuity = function(payment,i.rate,t.years){
-  period = seq(1:(t.years-1))
-  fv = payment*sum((1 + i.rate)^period) + payment
-  return(fv)
-}
-
-annuity.monthly = function(payment,i.rate,t.years){
-  t.months = t.years * 12
-  payment = payment/12
-  period = seq(1:(t.months-1))
-  fv = payment*sum((1 + i.rate/12)^period) + payment
-  return(fv)
-}
-
-i.rate = 0.08
-t.years = 5
-payment = 2400
-
-annuity(payment,i.rate,t.years)
-annuity.monthly(payment,i.rate,t.years)
-```
-
-## Present value of annuity
-
-```{r Present value of annuity}
-annuity.pv = function(payment,i.rate,t.years){
-  period = seq(1:(t.years))
-  fv = payment*sum(1/(1 + i.rate)^period)
-  return(fv)
-}
-
-annuity.monthly.pv = function(payment,i.rate,t.years){
-  t.months = t.years * 12
-  payment = payment/12
-  period = seq(1:(t.months))
-  fv = payment*sum(1/(1 + i.rate/12)^period)
-  return(fv)
-}
-
-i.rate = 0.08
-t.years = 0.5
-payment = 300*12
-
-annuity.pv(payment,i.rate,t.years)
-annuity.monthly.pv(payment,i.rate,t.years)
-```
-
-## Accumulation of a Future Sum
-
-```{r Accumulation of a Future Sum}
-
-afs = function(fv, i.rate, t.years){
-  payment = fv/sum(1/(1 + i.rate)^period)
-  return(payment)
-}
-
-afs.monthly = function(fv, i.rate, t.years){
-  t.months = t.years * 12
-  period = seq(1:(t.months))
-  payment = fv/sum(1/(1 + i.rate/12)^period)
-  return(payment)
-}
-
-i.rate = 0.1
-t.years = 5
-fv = 20000
-
-payment = fv*(1/annuity(1,i.rate,t.years))
-payment.monthly = fv*(1/annuity.monthly(1,i.rate,t.years))/12
-
-```
 
 ```{r}
+# 2.1
+(200000*0.06)/(1-(1/(1.06)^30))
 
+# 2.2
+pv = (14529.78/0.06)*(1-(1/1.06)^20)
+print(pv)
+new.payment = (pv*0.04)/(1-(1/1.04)^25)
+print(new.payment)
+
+# 2.3 
+(14529.78/0.04)*(1-(1/1.04)^25)
 ```
+
+
+
+# Exercise 3
+
+The Dutch financial authorities are currently considering the introduction of a maximum LTV (=Loan to Value) ratio when buying a house of 80%, whereas currently first-time buyers can finance their house completely with a mortgage loan. To see what this implies, consider a couple that is currently renting a house for €550.- per month. They would like to buy a house of €225,000.-.
+
+1.What would be the annual payment for the annuity mortgage needed to finance the house *completely* if the interest rate is 5% and the term of the loan is 30 years?
+1. What is the net payment for the mortgage in the first year (that is: the payment that remains after the impact of mortgage interest deductibility has been taken into account) if the marginal tax rate is 45%?
+1. Suppose the net payment you found in 3.2 is the maximum the couple could either spend on a mortgage or save in a given year. If the couple has no savings at this moment, how long does it have to save before it will be able to buy the house? Assume that interest received on savings is 4% and remains untaxed and that the price of the house is constant over time.
+
+## Answers
+
+1. 14,636.57
+1. **8,050.11 // 9574.073 **
+1. The couple need to save 20% of the value = 45,000. This amount equals savings plus accumulated interest at $T$.  Its present value $PV(T)$ is therefore $45000/(1+0.04)^T$. Now substitute the annual payment **$(P=9574.073)$**, and the interest rate (4%) in the right-hand side of the equation given at the beginning of question 1 for a trial value of $T$, say $T=2$. If it is lower than $PV(T)$ (evaluated for the same $T$, of course) they have to save longer and you should choose a higher value of $T$; if it is larger they do not need to save that long and $T$ can be smaller. Then choose a second value and continue the process until you have approached the duration accurately (e.g. in two digits).  You will find that $T$ is very close to **4.4 years**.       **(6.5 years)**
+
+```{r}
+# 3.1
+(225000*0.05)/(1-(1/1.05)^30)
+(0.8*225000*0.05)/(1-(1/1.05)^30)
+
+# 3.2
+(1-0.45)*(225000*0.05)/(1-(1/1.05)^30)
+
+# 3.3
+(8050.11/0.04)*(1-(1/1.04)^6.5)
+```
+
+
 
