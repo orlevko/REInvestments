@@ -44,7 +44,7 @@ or:
 PV = \frac{FV}{(1+\frac{i}{m})^{T*m}}
 \end{equation*}
 
-Examples of future value of 100,000 Euro after 1 year, compunded for:
+Examples of future value of 100,000 Euro after 1 year, compunded:
 
 $Quarterly: 100000*(1+\frac{0.1}{4})^{4} = 110,381.3$
 
@@ -65,9 +65,9 @@ FV = P(1+i)^{T-1} + P(1+i)^{T-2} + \ldots + P(1+i) + P
 
 Example:
 
-* P = 1,000
-* i = 5%
-* T = 10 years 
+* $P$ = 1,000
+* $i$ = 5%
+* $T$ = 10 years 
 
 $1000*(1.05)^{9} + \ldots + 1000*(1.05) +1000 = 12,577.89$
 
@@ -75,7 +75,7 @@ $1000*(1.05)^{9} + \ldots + 1000*(1.05) +1000 = 12,577.89$
 
 ## Present value of annuity
 
-The *present value* of annuity payments is particularly relevan for investment decision. It is equal to:
+The *present value* of annuity payments is particularly relevant for investment decision. It is equal to:
 
 \begin{equation*}
 L = \frac{P}{(1+i)} + \frac{P}{(1+i)^2} + \ldots + \frac{P}{(1+i)^T}
@@ -84,7 +84,7 @@ L = \frac{P}{(1+i)} + \frac{P}{(1+i)^2} + \ldots + \frac{P}{(1+i)^T}
 or:
 
 \begin{equation*}
-L = \frac{p}{i}(1 - \frac{1}{(1+i)^T})
+L = \frac{P}{i}(1 - \frac{1}{(1+i)^T})
 \end{equation*}
 
 # Exercises
