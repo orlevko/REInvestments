@@ -73,8 +73,8 @@ annuity.monthly = function(payment,i.rate,t.years){
   return(fv)
 }
 
-i.rate = 0.08
-t.years = 5
+i.rate = 0.05
+t.years = 25
 payment = 1000
 
 annuity(payment,i.rate,t.years)

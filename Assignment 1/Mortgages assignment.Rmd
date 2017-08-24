@@ -83,7 +83,7 @@ The Dutch financial authorities are currently considering the introduction of a 
 
 1. 14,636.57
 1. **8,050.11 // 9574.073 **
-1. The couple need to save 20% of the value = 45,000. This amount equals savings plus accumulated interest at $T$.  Its present value $PV(T)$ is therefore $45000/(1+0.04)^T$. Now substitute the annual payment **$(P=9574.073)$**, and the interest rate (4%) in the right-hand side of the equation given at the beginning of question 1 for a trial value of $T$, say $T=2$. If it is lower than $PV(T)$ (evaluated for the same $T$, of course) they have to save longer and you should choose a higher value of $T$; if it is larger they do not need to save that long and $T$ can be smaller. Then choose a second value and continue the process until you have approached the duration accurately (e.g. in two digits).  You will find that $T$ is very close to **4.4 years**.       **(6.5 years)**
+1. The couple need to save 20% of the value = 45,000. This amount equals savings plus accumulated interest at $T$.  Its present value $PV(T)$ is therefore $45000/(1+0.04)^T$. Now substitute the annual payment **$(P=9574.073)$**, and the interest rate (4%) in the right-hand side of the equation given at the beginning of question 1 for a trial value of $T$, say $T=2$. If it is lower than $PV(T)$ (evaluated for the same $T$, of course) they have to save longer and you should choose a higher value of $T$; if it is larger they do not need to save that long and $T$ can be smaller. Then choose a second value and continue the process until you have approached the duration accurately (e.g. in two digits).  You will find that $T$ is very close to **5.3 years**.   
 
 ```{r}
 # 3.1
@@ -91,10 +91,10 @@ The Dutch financial authorities are currently considering the introduction of a 
 (0.8*225000*0.05)/(1-(1/1.05)^30)
 
 # 3.2
-(1-0.45)*(225000*0.05)/(1-(1/1.05)^30)
+14636.57-(0.45)*(225000*0.05)
 
 # 3.3
-(8050.11/0.04)*(1-(1/1.04)^6.5)
+(9574.07/0.04)*(1-(1/1.04)^5.3)
 ```
 
 

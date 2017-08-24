@@ -1,0 +1,170 @@
+---
+title: "Time value of money"
+subtitle: "Real-Estate Investments - Tutorial 1"
+author: "Or Levkovich"
+date: "8 September 2017"
+output: beamer_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Time value of money
+
+Value of an initial deposit at the beginning (PV) and end of a period (FV) can be expressed by :
+
+\begin{equation*}
+FV = PV*(1+i)^T
+\end{equation*}
+
+The relationship between PV and FV depends on compunding interstest rates. Example : 
+
+* PV = 100,000
+* i = 0.1
+
+After 1 year: $100000*(1+0.1)^1 = 110,000$
+
+After 2 years: $100000*(1+0.1)^2 = 121,000$
+
+After 10 years: $100000*(1+0.1)^{10} = 259,374.2$
+
+
+## Time value of money - Compounding intervals
+
+To adjust for different compunding interavls $m$ we apply:
+
+\begin{equation*}
+FV = PV*(1+\frac{i}{m})^{T*m}
+\end{equation*}
+
+or: 
+
+\begin{equation*}
+PV = \frac{FV}{(1+\frac{i}{m})^{T*m}}
+\end{equation*}
+
+Examples of future value of 100,000 Euro after 1 year, compunded for:
+
+$Quarterly: 100000*(1+\frac{0.1}{4})^{4} = 110,381.3$
+
+$Monthly: 100000*(1+\frac{0.1}{12})^{12} = 110,471.3$
+
+$Daily: 100000*(1+\frac{0.1}{365})^{365} = 110,515.6$
+
+
+## Annuity
+
+Often we are interested in the value of a series of payments, defined as *annuity*. 
+
+The basic annuity formula refers to the payment of an amount $P$ over $T$ periods , while the interest rate is equal to $i$. 
+
+\begin{equation*}
+FV = P(1+i)^{T-1} + P(1+i)^{T-2} + \ldots + P(1+i) + P
+\end{equation*}
+
+Example:
+
+* P = 1,000
+* i = 5%
+* T = 10 years 
+
+$1000*(1.05)^{9} + \ldots + 1000*(1.05) +1000 = 12,577.89$
+
+
+
+## Present value of annuity
+
+The *present value* of annuity payments is particularly relevan for investment decision. It is equal to:
+
+\begin{equation*}
+L = \frac{P}{(1+i)} + \frac{P}{(1+i)^2} + \ldots + \frac{P}{(1+i)^T}
+\end{equation*}
+
+or:
+
+\begin{equation*}
+L = \frac{p}{i}(1 - \frac{1}{(1+i)^T})
+\end{equation*}
+
+# Exercises
+
+## Ex. 1
+
+Jim makes a deposit of 12,000 Euro in a bank account. The deposit is to earn interest compounded annually at the rate of 6% for 7 years.
+
+1. How much will Jim have on deposit at the end of 7 years?
+2. Assuming the deposit earned a 9% rate of interest compounded quarterly, how much would he have at the end of 7 years?
+3. In comparing (1) and (2), what are the respective effective annual yields?
+
+## Ex. 1 Answers
+
+1. 
+$12,000*(1 + 0.06)^7 = 18,043.56$
+
+2. 
+$12,000*(1 + \frac{0.09}{4})^{7*4}  = 22,374.54$
+
+3.  
+$(Q1) : (1+\frac{18043-12000}{12000})^{\frac{1}{7}} - 1 \approx 6\%$
+$(Q2) : (1+\frac{22374-12000}{12000})^{\frac{1}{7}} - 1 \approx 9.3\%$  
+
+
+## Ex. 2
+
+An investor can make an investment in a real estate development and receive an expected cash return of 45,000 Euro at the end of 6 years. She believes that a 9% annual return compounded quarterly is a reasonable return on this investment. 
+
+1. How much should she pay for it today?
+
+An investor is considering an investment that will pay 2,150 Euro at the end of each year for the next 10 years. He expects to earn a return of 12% on his investment, compounded annually. 
+
+2. How much should he pay today for the investment? 
+3. How much should he pay if the investment returns are received at the beginning of each year?
+
+
+
+## Ex. 2 Answers
+
+1. 
+
+$PV = \frac{45,000}{(1 + \frac{0.09}{4})^{6*4}} = 26,381.1$ 
+
+2. 
+
+$PV = \frac{2150}{1.12} + \frac{2150}{1.12^2} + \ldots + \frac{2150}{1.12^{10}}$
+
+$\frac{2150}{0.12}[1 - \frac{1}{(1+0.12)^{10}}] = 12,147.98$
+
+3. 
+
+$PV = 2150 + \frac{2150}{1.12} + \frac{2150}{1.12^2} + \ldots + \frac{2150}{1.12^{9}}$
+
+$\frac{2150}{0.12}[1 - \frac{1}{(1+0.12)^{9}}] = 13,605.74$
+
+
+
+## Ex. 3 
+
+You want to buy a house with price €250,000. Since you didn’t save, the house has to be completely financed. The bank offers you an annuity mortgage with an interest rate of 6% and a term of 25 years.
+
+1. What is the annual amount you have to pay on interest and amortization per year? (*Hint:* Use the annuity formula to recover the annual payments)
+
+After 5 years the interest rate has decreased to 4%, and you consider refinancing the loan. 
+
+2. What is the outstanding amount of the loan after 5 years? 
+3. What will be the annual payment if it is transferred to an annuity mortgage loan with an interest rate of 4% and a term of 20 years?
+
+## Ex .3 Answers
+
+1. Invert the annuity formula : 
+$p = \frac{L*i}{1 - \frac{1}{(1+i)^T}}$
+
+Using the formula derived above:
+$\frac{250000*0.06}{1-\frac{1}{1.06}^{25}} = 19,556.68$ 
+
+2. The outstanding amount is the present value of an annuity that pays 19,556 over a term of $25-5=20$ years, while the interest rate is 6%:
+$\frac{19,556.68}{0.06}(1-\frac{1}{(1+0.06)^{20}}) = 224,313.6$ 
+
+3. The annual payment of the new loan is: 
+$\frac{224,313.6*0.04}{1-\frac{1}{1.04}^{20}} = 16,505.39$
+
