@@ -10,6 +10,8 @@ output: beamer_presentation
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+library(FinCal)
+
 ## Time value of money
 
 Value of an initial deposit at the beginning (PV) and end of a period (FV) can be expressed by :
