@@ -1,0 +1,340 @@
+\documentclass[ignorenonframetext,]{beamer}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{caption label separator}{: }
+\setbeamercolor{caption name}{fg=normal text.fg}
+\beamertemplatenavigationsymbolsempty
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+\ifxetex
+\usepackage{mathspec}
+\else
+\usepackage{fontspec}
+\fi
+\defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\newif\ifbibliography
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{{#1}}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{{#1}}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
+\newcommand{\ImportTok}[1]{{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{{#1}}}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{{#1}}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{{#1}}}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{{#1}}}}
+\newcommand{\BuiltInTok}[1]{{#1}}
+\newcommand{\ExtensionTok}[1]{{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{{#1}}}
+\newcommand{\RegionMarkerTok}[1]{{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{{#1}}}}
+\newcommand{\NormalTok}[1]{{#1}}
+\usepackage{longtable,booktabs}
+\usepackage{caption}
+% These lines are needed to make table captions work with longtable:
+\makeatletter
+\def\fnum@table{\tablename~\thetable}
+\makeatother
+
+% Prevent slide breaks in the middle of a paragraph:
+\widowpenalties 1 10000
+\raggedbottom
+
+\AtBeginPart{
+\let\insertpartnumber\relax
+\let\partname\relax
+\frame{\partpage}
+}
+\AtBeginSection{
+\ifbibliography
+\else
+\let\insertsectionnumber\relax
+\let\sectionname\relax
+\frame{\sectionpage}
+\fi
+}
+\AtBeginSubsection{
+\let\insertsubsectionnumber\relax
+\let\subsectionname\relax
+\frame{\subsectionpage}
+}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+
+\title{Time value of money}
+\subtitle{Real-Estate Investments - Tutorial 2}
+\author{Or Levkovich}
+\date{15 September 2017}
+
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}{Mortgages}
+
+Mortgages are loans designated for investments in real estate.
+
+Mortgage pricing (or interest, \(i\)) is derived from:
+
+\begin{itemize}
+\tightlist
+\item
+  Real rate of interest (\(r\)).
+\item
+  Inflation (\(f\))
+\item
+  Risk premium (\(p\)):
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Possible future changes in interest rate or inflation rate.
+  \item
+    Prepayment risks.
+  \item
+    Liquidity risks
+  \item
+    Risk of default.
+  \end{itemize}
+\end{itemize}
+
+Mortgage pricing follows : \(i = r + f + p\)
+
+\end{frame}
+
+\begin{frame}{Mortgages - important terms}
+
+\begin{itemize}
+\tightlist
+\item
+  Loan amount
+\item
+  Maturity date
+\item
+  Interest rates
+\item
+  Periodical payment = intrerest payment + amortization payment
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Fixed rate mortgage (FRM) mortgage loans}
+
+\footnotesize
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule
+Type & Pay rate & Loan balance at maturity\tabularnewline
+\midrule
+\endhead
+Fully amortizing & Greater than accrual rate & Fully
+repaid\tabularnewline
+Partially amortizing & Greater than accrual rate & Not fully
+repaid\tabularnewline
+Interest only & Equal to accrual rate & Equal to amount
+borrowed\tabularnewline
+Negative amortizing & Less than accrual rate & Greater than amount
+borrowed\tabularnewline
+\bottomrule
+\end{longtable}
+
+\textbf{Amortization}: The process of loan repayment over time.
+
+\normalsize
+
+\end{frame}
+
+\begin{frame}{Types of FRM}
+
+\textbf{Fully or Partially amortizing:} - \emph{Constant payments} - A
+constant payment is calculated on an original loan amount, at a fixed
+rate of interest for a given term (\emph{= Annuity mortgage}).
+
+\textbf{Interest only:} - \emph{Zero Amortizing} - Constant payments
+will be ``interest only''.
+
+\textbf{Negative Amortizing:} - Constant payments are lower than the
+periodic interest. Outstanding value at maturity is greater than
+borrowed.
+
+\textbf{Other:} - \emph{Constant amortization} - Payment is calculated
+based on a fixed amortization rate, interest is calculated based on the
+remaining outstanding amount (\emph{= Linear mortgage}).
+
+\end{frame}
+
+\section{Exercises (in Excel)}\label{exercises-in-excel}
+
+\begin{frame}{Ex. 1}
+
+\small
+
+You are renting an apartment in the center of Amsterdam for a monthly
+payment of 1000 Euro. You find out that your landlord wants to sell the
+apartment, and you consider whether to buy it yourself.
+
+The asking price for the property is 250,000 Euro. The bank agrees to
+approve a \textbf{constant payment loan} for 100\% of the value, with an
+interest rate of 4\% per year, compunded monthly, maturity in 20 years.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Use the \emph{PMT} function in excel to recover what would be your
+  monthly mortgage payment if you decide to buy.
+\item
+  You prefer to invest a monthly payment which is not higher than the
+  value you currently pay for rent. Given the bank's offer, what would
+  be the highest value you can pay for a house? (use Excel's \emph{PV}
+  function).
+\item
+  The bank advices you on different types of mortgages, in which your
+  monthly payment can be lower. For instance, \emph{Interest only}
+  mortgage. What would be the monthly payment if you accept this loan?
+\end{enumerate}
+
+\normalsize
+
+\end{frame}
+
+\begin{frame}[fragile]{Ex. 1. Answers}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# 1 }
+\KeywordTok{pmt}\NormalTok{(}\FloatTok{0.04}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{20}\NormalTok{*}\DecValTok{12}\NormalTok{, -}\DecValTok{250000}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{=}\StringTok{ }\DecValTok{1}\NormalTok{,}\FloatTok{514.951}
+
+\CommentTok{# 2}
+\KeywordTok{pv}\NormalTok{(}\FloatTok{0.04}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{20}\NormalTok{*}\DecValTok{12}\NormalTok{, }\DecValTok{1000}\NormalTok{)}
+\NormalTok{=}\StringTok{ }\DecValTok{165}\NormalTok{,}\FloatTok{021.9}
+
+\CommentTok{# 3}
+\KeywordTok{pmt}\NormalTok{(}\FloatTok{0.04}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{20}\NormalTok{*}\DecValTok{12}\NormalTok{, -}\DecValTok{250000}\NormalTok{, }\DecValTok{250000}\NormalTok{)}
+\NormalTok{=}\StringTok{ }\FloatTok{833.3333}
+\end{Highlighting}
+\end{Shaded}
+
+\end{frame}
+
+\begin{frame}{Ex. 2}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Alternatively, the bank offers you a \textbf{linear mortgage}. Open an
+  excel file and calculate - What would be your monthly payments?
+  Remember:
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  Monthly payment \emph{is not} constant. It is equal to \emph{PMT =
+  Amortization (Fixed) + interest (changes with outstanding amount)}
+\item
+  conditions are as before: loan value = 250,000, T = 20*12, interest =
+  4\%.
+\item
+  For more information please follow page 103 in the book.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Ex. 2. Answers}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  See excel sheet.
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}{Ex .3}
+
+It is 2007, interest rates are high and housing prices have been
+increasing for almost 15 years. You believe it is a good time to invest,
+and that interest rates will remain high in the future (perhaps even
+increase!).
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Which of the fixed-rate mortgage loan types (\emph{constant payment,
+  interest only, constant amortization}) would you prefer to accept,
+  given your expectations? (and why?)
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}{Ex. 3. Answers}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  We assume interest rates to remain stable, or increase.
+\item
+  ``Constant payment'' and ``constant amortization'' loans lead to full
+  amortization at maturity. ``Interest only'' loan leads to zero
+  amortization, and the outstanding amount has to be paid in full.
+\item
+  Assuming that interest rates will increase implies that mortgage
+  payments of \emph{all} loans will reflect gain (the difference between
+  the loan rate and market rate), but ``interest only'' loan will
+  reflect the highest gain.
+\end{itemize}
+
+\end{frame}
+
+\end{document}
