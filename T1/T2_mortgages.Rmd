@@ -1,0 +1,131 @@
+---
+title: "Time value of money"
+subtitle: "Real-Estate Investments - Tutorial 2"
+author: "Or Levkovich"
+date: "15 September 2017"
+output: 
+  beamer_presentation:
+    keep_tex: TRUE
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+
+library(FinCal)
+```
+
+
+## Mortgages
+
+Mortgages are loans designated for investments in real estate.
+
+Mortgage pricing (or interest, $i$) is derived from:
+
+- Real rate of interest ($r$).
+- Inflation ($f$)
+- Risk premium ($p$):
+    - Possible future changes in interest rate or inflation rate.
+    - Prepayment risks.
+    - Liquidity risks
+    - Risk of default.
+
+Mortgage pricing follows : 
+$i = r + f + p$
+
+
+## Mortgages - important terms
+
+- Loan amount
+- Maturity date
+- Interest rates
+- Periodical payment = intrerest payment + amortization payment
+
+## Fixed rate mortgage (FRM) mortgage loans 
+
+\footnotesize
+
+Type | Pay rate | Loan balance at maturity 
+-----+----------+-------------------------
+Fully amortizing | Greater than accrual rate | Fully repaid
+Partially amortizing | Greater than accrual rate | Not fully repaid
+Interest only | Equal to accrual rate  | Equal to amount borrowed
+Negative amortizing | Less than accrual rate | Greater than amount borrowed
+
+
+**Amortization**: The process of loan repayment over time.
+
+\normalsize
+
+## Types of FRM
+
+**Fully or Partially amortizing:**
+ - *Constant payments* - A constant payment is calculated on an original loan amount, at a fixed rate of interest for a given term (*= Annuity mortgage*).
+ 
+**Interest only:**
+ - *Zero Amortizing* - Constant payments will be "interest only".
+ 
+**Negative Amortizing:**
+ - Constant payments are lower than the periodic interest. Outstanding value at maturity is greater than borrowed.
+
+**Other:**
+- *Constant amortization* - Payment is calculated based on a fixed amortization rate, interest is calculated based on the remaining outstanding amount (*= Linear mortgage*).
+
+
+# Exercises (in Excel)
+## Ex. 1
+
+\small
+
+You are renting an apartment in the center of Amsterdam for a monthly payment of 1000 Euro. You find out that your landlord wants to sell the apartment, and you consider whether to buy it yourself.
+
+The asking price for the property is 250,000 Euro. The bank agrees to approve a **constant payment loan** for 100% of the value, with an interest rate of 4% per year, compunded monthly, maturity in 20 years.
+
+1. Use the *PMT* function in excel to recover what would be your monthly mortgage payment if you decide to buy.
+2. You prefer to invest a monthly payment which is not higher than the value you currently pay for rent. Given the bank's offer, what would be the highest value you can pay for a house? (use Excel's *PV* function).
+3. The bank advices you on different types of mortgages, in which your monthly payment can be lower. For instance, *Interest only* mortgage. What would be the monthly payment if you accept this loan?
+
+\normalsize
+
+## Ex. 1. Answers
+
+```{r ex1, results='hide', eval = FALSE}
+# 1 
+pmt(0.04/12, 20*12, -250000, 0)
+= 1,514.951
+
+# 2
+pv(0.04/12, 20*12, 1000)
+= 165,021.9
+
+# 3
+pmt(0.04/12, 20*12, -250000, 250000)
+= 833.3333
+```
+
+## Ex. 2
+
+1. Alternatively, the bank offers you a **linear mortgage**. Open an excel file and calculate - What would be your monthly payments? 
+Remember: 
+ - Monthly payment *is not* constant. It is equal to *PMT = Amortization (Fixed) + interest (changes with outstanding amount)*
+ - conditions are as before: loan value = 250,000, T = 20*12, interest = 4%.
+ - For more information please follow page 103 in the book.
+
+## Ex. 2. Answers
+
+1. See excel sheet.
+
+
+## Ex .3 
+
+It is 2007, interest rates are high and housing prices have been increasing for almost 15 years. You believe it is a good time to invest, and that interest rates will remain high in the future (perhaps even increase!). 
+
+1. Which of the fixed-rate mortgage loan types (*constant payment, interest only, constant amortization*) would you prefer to accept, given your expectations? (and why?)
+
+## Ex. 3. Answers
+
+1. 
+- We assume interest rates to remain stable, or increase. 
+- "Constant payment" and "constant amortization" loans lead to full amortization at maturity. "Interest only" loan leads to zero amortization, and the outstanding amount has to be paid in full. 
+- Assuming that interest rates will increase implies that mortgage payments of *all* loans will reflect gain (the difference between the loan rate and market rate), but "interest only" loan will reflect the highest gain.
+
