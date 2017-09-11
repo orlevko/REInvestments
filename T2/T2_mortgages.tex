@@ -204,6 +204,94 @@ remaining outstanding amount (\emph{= Linear mortgage}).
 
 \end{frame}
 
+\section{Exercises (from the book)}\label{exercises-from-the-book}
+
+\begin{frame}{Problem 1 (P.108)}
+
+A borrower obtains a fully amortizing CPM loan for \$125,000 at 11
+percent interest for 10 years. What will be the monthly payment on the
+loan? If this loan had a maturity of 30 years, what would be the monthly
+payment?
+
+\end{frame}
+
+\begin{frame}[fragile]{Problem 1 answer}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# 1}
+\KeywordTok{pmt}\NormalTok{(}\FloatTok{0.11}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{10}\NormalTok{*}\DecValTok{12}\NormalTok{, -}\DecValTok{125000}\NormalTok{, }\DecValTok{0}\NormalTok{) =}\StringTok{ }
+\FloatTok{1721.88}
+\end{Highlighting}
+\end{Shaded}
+
+\end{frame}
+
+\begin{frame}{Problem 6 (P.108)}
+
+A 30-year fully amortizing mortgage loan was made 10 years ago for
+\$75,000 at 6 percent interest. The borrower would like to prepay the
+mortgage balance by \$10,000.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  Assuming he can reduce his monthly mortgage payments, what is the new
+  mortgage payment?
+\item
+  Assuming the loan maturity is shortened and using the original monthly
+  payments, what is the new loan maturity?
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}[fragile]{Problem 6 answer}
+
+\small
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# 6a }
+\NormalTok{First, calculate payments value:}\StringTok{ }
+\KeywordTok{pmt}\NormalTok{(}\FloatTok{0.06}\NormalTok{, }\DecValTok{30}\NormalTok{, -}\DecValTok{75000}\NormalTok{, }\DecValTok{0}\NormalTok{) =}\StringTok{ }\DecValTok{5}\NormalTok{,}\FloatTok{448.6}
+
+\NormalTok{Then calculate PV of mortgage for the next }\DecValTok{20} \NormalTok{years:}
+\KeywordTok{pv}\NormalTok{(}\FloatTok{0.06}\NormalTok{, }\DecValTok{20}\NormalTok{, -}\FloatTok{5448.6}\NormalTok{) =}\StringTok{ }\DecValTok{62}\NormalTok{,}\FloatTok{495.01}
+
+\NormalTok{Then calculate new mortgage payment, after }\DecValTok{10}\NormalTok{,}\DecValTok{000} \NormalTok{prepayment:}
+\KeywordTok{pmt}\NormalTok{(}\FloatTok{0.06}\NormalTok{, }\DecValTok{20}\NormalTok{, -(}\FloatTok{62495.01}\DecValTok{-10000}\NormalTok{), }\DecValTok{0}\NormalTok{) =}\StringTok{ }\DecValTok{4}\NormalTok{,}\FloatTok{576.75}
+
+
+\CommentTok{# 6b}
+\NormalTok{Calculate maturity given prepayment and original pmt:}
+\KeywordTok{nper}\NormalTok{(}\FloatTok{0.06}\NormalTok{, -}\FloatTok{5448.6}\NormalTok{, }\FloatTok{52495.01}\DecValTok{-10000}\NormalTok{) =}\StringTok{ }\FloatTok{14.81}
+\end{Highlighting}
+\end{Shaded}
+
+\normalsize
+
+\end{frame}
+
+\begin{frame}{Problem 8 (P.108)}
+
+A fully amortizing mortgage is made for \$80,000 for 25 years. Total
+monthly payments will be \$900 per month. What is the interest rate on
+the loan?
+
+\end{frame}
+
+\begin{frame}[fragile]{Problem 8 answer}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# 8}
+\DecValTok{12}\NormalTok{*}\KeywordTok{rate}\NormalTok{(}\DecValTok{25}\NormalTok{*}\DecValTok{12}\NormalTok{, -}\DecValTok{900}\NormalTok{, }\DecValTok{80000}\NormalTok{) =}\StringTok{ }\DecValTok{13}\NormalTok{%}
+\end{Highlighting}
+\end{Shaded}
+
+\end{frame}
+
 \section{Exercises (in Excel)}\label{exercises-in-excel}
 
 \begin{frame}{Ex. 1}
@@ -263,7 +351,10 @@ interest rate of 4\% per year, compunded monthly, maturity in 20 years.
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
-\tightlist
+\item
+  The government discusses limiting the LTV rate to 80\%. If this is the
+  case, how long will you need to save before you can buy? (assuming
+  that you save 1000 euro/month, same as your rate payments)
 \item
   Alternatively, the bank offers you a \textbf{linear mortgage}. Open an
   excel file and calculate - What would be your monthly payments?
@@ -284,10 +375,26 @@ interest rate of 4\% per year, compunded monthly, maturity in 20 years.
 
 \end{frame}
 
-\begin{frame}{Ex. 2. Answers}
+\begin{frame}[fragile]{Ex. 2. Answers}
+
+\footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# 1}
+\FloatTok{0.2}\NormalTok{*}\DecValTok{250000} \NormalTok{=}\StringTok{ }\DecValTok{50}\NormalTok{,}\DecValTok{000}
+\KeywordTok{nper}\NormalTok{(}\FloatTok{0.04}\NormalTok{/}\DecValTok{12}\NormalTok{,-}\DecValTok{1000}\NormalTok{, }\DecValTok{50000}\NormalTok{)/}\DecValTok{12} \NormalTok{=}\StringTok{ }
+
+\FloatTok{4.56} \NormalTok{years }
+\NormalTok{(Assuming no price increase will occur in the meanwhile)}
+\end{Highlighting}
+\end{Shaded}
+
+\normalsize
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
 \tightlist
 \item
   See excel sheet.
@@ -334,8 +441,8 @@ What would be the monthly mortgage payment if you would have bought in
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# 1. About 3.7%}
-\KeywordTok{pv}\NormalTok{(}\FloatTok{0.037}\NormalTok{/}\DecValTok{12}\NormalTok{,}\DecValTok{40}\NormalTok{*}\DecValTok{12}\NormalTok{,-}\DecValTok{1000}\NormalTok{) =}\StringTok{ }
-\DecValTok{250}\NormalTok{,}\FloatTok{327.6}
+\DecValTok{12}\NormalTok{*}\KeywordTok{RATE}\NormalTok{(}\DecValTok{480}\NormalTok{, -}\DecValTok{1000}\NormalTok{, }\DecValTok{250000}\NormalTok{) =}\StringTok{ }
+\FloatTok{3.71}\NormalTok{%}
 
 \CommentTok{# 2.}
 \KeywordTok{pmt}\NormalTok{(}\FloatTok{0.04}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{20}\NormalTok{*}\DecValTok{12}\NormalTok{, -}\DecValTok{212500}\NormalTok{, }\DecValTok{0}\NormalTok{) }
@@ -349,9 +456,10 @@ What would be the monthly mortgage payment if you would have bought in
 \KeywordTok{pmt}\NormalTok{(}\FloatTok{0.04}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{20}\NormalTok{*}\DecValTok{12}\NormalTok{, -}\DecValTok{212500}\NormalTok{, }\DecValTok{212500}\NormalTok{) }
 \NormalTok{=}\StringTok{ }\FloatTok{708.3333}
 
-\KeywordTok{pmt}\NormalTok{(}\FloatTok{0.04}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{20}\NormalTok{*}\DecValTok{12}\NormalTok{, -}\DecValTok{212500}\NormalTok{, }\DecValTok{212500}\NormalTok{)-}
-\KeywordTok{pmt}\NormalTok{(}\FloatTok{0.04}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{20}\NormalTok{*}\DecValTok{12}\NormalTok{, -}\DecValTok{250000}\NormalTok{, }\DecValTok{250000}\NormalTok{) }
-\NormalTok{=}\StringTok{ }\FloatTok{125.0}
+\KeywordTok{pmt}\NormalTok{(}\FloatTok{0.04}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{20}\NormalTok{*}\DecValTok{12}\NormalTok{, -}\DecValTok{250000}\NormalTok{, }\DecValTok{250000}\NormalTok{)-}
+\KeywordTok{pmt}\NormalTok{(}\FloatTok{0.04}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{20}\NormalTok{*}\DecValTok{12}\NormalTok{, -}\DecValTok{212500}\NormalTok{, }\DecValTok{212500}\NormalTok{)}
+ 
+\NormalTok{=}\StringTok{ }\NormalTok{-}\FloatTok{125.0}
 \end{Highlighting}
 \end{Shaded}
 

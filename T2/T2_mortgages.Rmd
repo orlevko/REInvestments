@@ -72,6 +72,64 @@ Negative amortizing | Less than accrual rate | Greater than amount borrowed
 - *Constant amortization* - Payment is calculated based on a fixed amortization rate, interest is calculated based on the remaining outstanding amount (*= Linear mortgage*).
 
 
+
+# Exercises (from the book)
+
+## Problem 1 (P.108)
+
+A borrower obtains a fully amortizing CPM loan for \$125,000 at 11 percent interest for 10 years. What will be the monthly payment on the loan? If this loan had a maturity of 30 years, what would be the monthly payment?
+
+## Problem 1 answer
+
+```{r book ex1, results='hide', eval = FALSE}
+# 1
+pmt(0.11/12, 10*12, -125000, 0) = 
+1721.88
+```
+
+## Problem 6 (P.108)
+
+A 30-year fully amortizing mortgage loan was made 10 years ago for \$75,000 at 6 percent interest. The borrower would like to prepay 
+the mortgage balance by \$10,000.
+
+a. Assuming he can reduce his monthly mortgage payments, what is the new mortgage payment?
+b. Assuming the loan maturity is shortened and using the original monthly payments, what is the new loan maturity?
+
+## Problem 6 answer
+\small
+```{r book ex6, results='hide', eval = FALSE}
+# 6a 
+First, calculate payments value: 
+pmt(0.06, 30, -75000, 0) = 5,448.6
+
+Then calculate PV of mortgage for the next 20 years:
+pv(0.06, 20, -5448.6) = 62,495.01
+
+Then calculate new mortgage payment, after 10,000 prepayment:
+pmt(0.06, 20, -(62495.01-10000), 0) = 4,576.75
+
+
+# 6b
+Calculate maturity given prepayment and original pmt:
+nper(0.06, -5448.6, 52495.01-10000) = 14.81
+
+```
+\normalsize
+
+## Problem 8 (P.108)
+
+A fully amortizing mortgage is made for \$80,000 for 25 years. Total monthly payments will be \$900 per month. What is the interest rate on the loan?
+
+
+## Problem 8 answer
+
+```{r book ex, results='hide', eval = FALSE}
+# 8
+12*rate(25*12, -900, 80000) = 13%
+```
+
+
+
 # Exercises (in Excel)
 ## Ex. 1
 
@@ -105,15 +163,29 @@ pmt(0.04/12, 20*12, -250000, 250000)
 
 ## Ex. 2
 
-1. Alternatively, the bank offers you a **linear mortgage**. Open an excel file and calculate - What would be your monthly payments? 
+1. The government discusses limiting the LTV rate to 80%. If this is the case, how long will you need to save before you can buy? (assuming that you save 1000 euro/month, same as your rate payments) 
+
+2. Alternatively, the bank offers you a **linear mortgage**. Open an excel file and calculate - What would be your monthly payments? 
 Remember: 
  - Monthly payment *is not* constant. It is equal to *PMT = Amortization (Fixed) + interest (changes with outstanding amount)*
  - conditions are as before: loan value = 250,000, T = 20*12, interest = 4%.
  - For more information please follow page 103 in the book.
 
+
 ## Ex. 2. Answers
 
-1. See excel sheet.
+\footnotesize
+```{r ex2, results="hide", eval=FALSE} 
+# 1
+0.2*250000 = 50,000
+nper(0.04/12,-1000, 50000)/12 = 
+
+4.56 years 
+(Assuming no price increase will occur in the meanwhile)
+```
+\normalsize
+
+2. See excel sheet.
 
 
 ## Ex .3 
@@ -134,8 +206,8 @@ What would be the monthly mortgage payment if you would have bought in 2009 inst
 \footnotesize
 ```{r ex3, results="hide", eval=FALSE}
 # 1. About 3.7%
-pv(0.037/12,40*12,-1000) = 
-250,327.6
+12*RATE(480, -1000, 250000) = 
+3.71%
 
 # 2.
 pmt(0.04/12, 20*12, -212500, 0) 
@@ -149,9 +221,10 @@ pmt(0.04/12, 20*12, -250000, 0)
 pmt(0.04/12, 20*12, -212500, 212500) 
 = 708.3333
 
-pmt(0.04/12, 20*12, -212500, 212500)-
-pmt(0.04/12, 20*12, -250000, 250000) 
-= 125.0
+pmt(0.04/12, 20*12, -250000, 250000)-
+pmt(0.04/12, 20*12, -212500, 212500)
+ 
+= -125.0
 ```
 \normalsize
 
