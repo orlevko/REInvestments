@@ -118,14 +118,41 @@ Remember:
 
 ## Ex .3 
 
-It is 2007, interest rates are high and housing prices have been increasing for almost 15 years. You believe it is a good time to invest, and that interest rates will remain high in the future (perhaps even increase!). 
+The bank eventually offers you a **constant payment** loan for 250,000, with a monthly payment of 1000 Euro and maturity in 40 years.
 
-1. Which of the fixed-rate mortgage loan types (*constant payment, interest only, constant amortization*) would you prefer to accept, given your expectations? (and why?)
+1. What interest rate does this loan represent?
+
+It is 2008, interest rates are high and housing prices have been increasing for almost 15 years. You believe it is a good time to invest so you decide to buy. Unfortunately, in the following year the market value of the house has dropped by 15% (= 212,500). 
+
+What would be the monthly mortgage payment if you would have bought in 2009 instead of 2008? 
+
+2. Under *constant payment* loan?
+3. Under *Interest only* loan?
 
 ## Ex. 3. Answers
 
-1. 
-- We assume interest rates to remain stable, or increase. 
-- "Constant payment" and "constant amortization" loans lead to full amortization at maturity. "Interest only" loan leads to zero amortization, and the outstanding amount has to be paid in full. 
-- Assuming that interest rates will increase implies that mortgage payments of *all* loans will reflect gain (the difference between the loan rate and market rate), but "interest only" loan will reflect the highest gain.
+\footnotesize
+```{r ex3, results="hide", eval=FALSE}
+# 1. About 3.7%
+pv(0.037/12,40*12,-1000) = 
+250,327.6
+
+# 2.
+pmt(0.04/12, 20*12, -212500, 0) 
+= 1,287.708
+
+pmt(0.04/12, 20*12, -212500, 0)-
+pmt(0.04/12, 20*12, -250000, 0)
+= -227.242
+
+# 3.
+pmt(0.04/12, 20*12, -212500, 212500) 
+= 708.3333
+
+pmt(0.04/12, 20*12, -212500, 212500)-
+pmt(0.04/12, 20*12, -250000, 250000) 
+= 125.0
+```
+\normalsize
+
 

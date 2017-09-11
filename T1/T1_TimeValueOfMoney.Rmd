@@ -8,9 +8,10 @@ output: beamer_presentation
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(FinCal)
 ```
 
-library(FinCal)
+
 
 ## Time value of money
 

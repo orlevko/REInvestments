@@ -297,43 +297,65 @@ interest rate of 4\% per year, compunded monthly, maturity in 20 years.
 
 \begin{frame}{Ex .3}
 
-It is 2007, interest rates are high and housing prices have been
-increasing for almost 15 years. You believe it is a good time to invest,
-and that interest rates will remain high in the future (perhaps even
-increase!).
+The bank eventually offers you a \textbf{constant payment} loan for
+250,000, with a monthly payment of 1000 Euro and maturity in 40 years.
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  Which of the fixed-rate mortgage loan types (\emph{constant payment,
-  interest only, constant amortization}) would you prefer to accept,
-  given your expectations? (and why?)
+  What interest rate does this loan represent?
+\end{enumerate}
+
+It is 2008, interest rates are high and housing prices have been
+increasing for almost 15 years. You believe it is a good time to invest
+so you decide to buy. Unfortunately, in the following year the market
+value of the house has dropped by 15\% (= 212,500).
+
+What would be the monthly mortgage payment if you would have bought in
+2009 instead of 2008?
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Under \emph{constant payment} loan?
+\item
+  Under \emph{Interest only} loan?
 \end{enumerate}
 
 \end{frame}
 
-\begin{frame}{Ex. 3. Answers}
+\begin{frame}[fragile]{Ex. 3. Answers}
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-\end{enumerate}
+\footnotesize
 
-\begin{itemize}
-\tightlist
-\item
-  We assume interest rates to remain stable, or increase.
-\item
-  ``Constant payment'' and ``constant amortization'' loans lead to full
-  amortization at maturity. ``Interest only'' loan leads to zero
-  amortization, and the outstanding amount has to be paid in full.
-\item
-  Assuming that interest rates will increase implies that mortgage
-  payments of \emph{all} loans will reflect gain (the difference between
-  the loan rate and market rate), but ``interest only'' loan will
-  reflect the highest gain.
-\end{itemize}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# 1. About 3.7%}
+\KeywordTok{pv}\NormalTok{(}\FloatTok{0.037}\NormalTok{/}\DecValTok{12}\NormalTok{,}\DecValTok{40}\NormalTok{*}\DecValTok{12}\NormalTok{,-}\DecValTok{1000}\NormalTok{) =}\StringTok{ }
+\DecValTok{250}\NormalTok{,}\FloatTok{327.6}
+
+\CommentTok{# 2.}
+\KeywordTok{pmt}\NormalTok{(}\FloatTok{0.04}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{20}\NormalTok{*}\DecValTok{12}\NormalTok{, -}\DecValTok{212500}\NormalTok{, }\DecValTok{0}\NormalTok{) }
+\NormalTok{=}\StringTok{ }\DecValTok{1}\NormalTok{,}\FloatTok{287.708}
+
+\KeywordTok{pmt}\NormalTok{(}\FloatTok{0.04}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{20}\NormalTok{*}\DecValTok{12}\NormalTok{, -}\DecValTok{212500}\NormalTok{, }\DecValTok{0}\NormalTok{)-}
+\KeywordTok{pmt}\NormalTok{(}\FloatTok{0.04}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{20}\NormalTok{*}\DecValTok{12}\NormalTok{, -}\DecValTok{250000}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+\NormalTok{=}\StringTok{ }\NormalTok{-}\FloatTok{227.242}
+
+\CommentTok{# 3.}
+\KeywordTok{pmt}\NormalTok{(}\FloatTok{0.04}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{20}\NormalTok{*}\DecValTok{12}\NormalTok{, -}\DecValTok{212500}\NormalTok{, }\DecValTok{212500}\NormalTok{) }
+\NormalTok{=}\StringTok{ }\FloatTok{708.3333}
+
+\KeywordTok{pmt}\NormalTok{(}\FloatTok{0.04}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{20}\NormalTok{*}\DecValTok{12}\NormalTok{, -}\DecValTok{212500}\NormalTok{, }\DecValTok{212500}\NormalTok{)-}
+\KeywordTok{pmt}\NormalTok{(}\FloatTok{0.04}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{20}\NormalTok{*}\DecValTok{12}\NormalTok{, -}\DecValTok{250000}\NormalTok{, }\DecValTok{250000}\NormalTok{) }
+\NormalTok{=}\StringTok{ }\FloatTok{125.0}
+\end{Highlighting}
+\end{Shaded}
+
+\normalsize
 
 \end{frame}
 
