@@ -181,9 +181,9 @@ Remember:
 ```{r ex2, results="hide", eval=FALSE} 
 # 1
 0.2*250000 = 50,000
-nper(0.04/12,-1000, 50000)/12 = 
+nper(0.04/12,+1000, 50000)/12 = 
 
-4.56 years 
+3.86 years 
 (Assuming no price increase will occur in the meanwhile)
 ```
 \normalsize
