@@ -221,7 +221,10 @@ payment?
 \begin{Highlighting}[]
 \CommentTok{# 1}
 \KeywordTok{pmt}\NormalTok{(}\FloatTok{0.11}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{10}\NormalTok{*}\DecValTok{12}\NormalTok{, -}\DecValTok{125000}\NormalTok{, }\DecValTok{0}\NormalTok{) =}\StringTok{ }
-\FloatTok{1721.88}
+\DecValTok{1}\NormalTok{,}\FloatTok{721.88}
+
+\KeywordTok{pmt}\NormalTok{(}\FloatTok{0.11}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{30}\NormalTok{*}\DecValTok{12}\NormalTok{, -}\DecValTok{125000}\NormalTok{, }\DecValTok{0}\NormalTok{) =}\StringTok{ }
+\DecValTok{1}\NormalTok{,}\FloatTok{190.4}
 \end{Highlighting}
 \end{Shaded}
 
@@ -265,7 +268,7 @@ mortgage balance by \$10,000.
 
 \CommentTok{# 6b}
 \NormalTok{Calculate maturity given prepayment and original pmt:}
-\KeywordTok{nper}\NormalTok{(}\FloatTok{0.06}\NormalTok{, -}\FloatTok{5448.6}\NormalTok{, }\FloatTok{52495.01}\DecValTok{-10000}\NormalTok{) =}\StringTok{ }\FloatTok{14.81}
+\KeywordTok{nper}\NormalTok{(}\FloatTok{0.06}\NormalTok{, -}\FloatTok{5448.6}\NormalTok{, (}\FloatTok{62495.01}\DecValTok{-10000}\NormalTok{)) =}\StringTok{ }\FloatTok{14.81}
 \end{Highlighting}
 \end{Shaded}
 

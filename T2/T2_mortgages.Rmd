@@ -84,7 +84,10 @@ A borrower obtains a fully amortizing CPM loan for \$125,000 at 11 percent inter
 ```{r book ex1, results='hide', eval = FALSE}
 # 1
 pmt(0.11/12, 10*12, -125000, 0) = 
-1721.88
+1,721.88
+
+pmt(0.11/12, 30*12, -125000, 0) = 
+1,190.4
 ```
 
 ## Problem 6 (P.108)
@@ -111,7 +114,7 @@ pmt(0.06, 20, -(62495.01-10000), 0) = 4,576.75
 
 # 6b
 Calculate maturity given prepayment and original pmt:
-nper(0.06, -5448.6, 52495.01-10000) = 14.81
+nper(0.06, -5448.6, (62495.01-10000)) = 14.81
 
 ```
 \normalsize
