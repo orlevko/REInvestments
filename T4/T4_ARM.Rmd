@@ -1,0 +1,17 @@
+---
+title: "Adjustable rate mortgages"
+subtitle: "Real-Estate Investments - Tutorial 4"
+author: "Or Levkovich"
+date: "29 September 2017"
+output: 
+  beamer_presentation:
+    keep_tex: TRUE
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+
+library(FinCal)
+```
+
