@@ -324,13 +324,16 @@ a 30-year maturity.
 \NormalTok{See Excel}
 
 \CommentTok{# 1}
-\NormalTok{=}\KeywordTok{PMT}\NormalTok{(}\FloatTok{0.06}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{30}\NormalTok{*}\DecValTok{12}\NormalTok{, -}\DecValTok{200}\NormalTok{,}\DecValTok{000}\NormalTok{, }\DecValTok{0}\NormalTok{) =}\StringTok{ }\DecValTok{1}\NormalTok{,}\FloatTok{199.1}
+\NormalTok{=}\KeywordTok{PMT}\NormalTok{(}\FloatTok{0.07}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{30}\NormalTok{*}\DecValTok{12}\NormalTok{, -}\DecValTok{150000}\NormalTok{, }\DecValTok{0}\NormalTok{) =}\StringTok{ }\FloatTok{997.9537}
+\NormalTok{=}\KeywordTok{FV}\NormalTok{(}\FloatTok{0.07}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{12}\NormalTok{*}\DecValTok{3}\NormalTok{, -}\FloatTok{997.9537}\NormalTok{, }\DecValTok{150000}\NormalTok{) =}\StringTok{ }\NormalTok{-}\DecValTok{145}\NormalTok{,}\FloatTok{090.4}
 
 \CommentTok{# 2}
-\NormalTok{=}\KeywordTok{FV}\NormalTok{(}\FloatTok{0.06}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{12}\NormalTok{, -}\DecValTok{1}\NormalTok{,}\FloatTok{199.1}\NormalTok{, }\DecValTok{200}\NormalTok{,}\DecValTok{000}\NormalTok{) =}\StringTok{ }\DecValTok{197}\NormalTok{,}\DecValTok{543}
+\NormalTok{=}\KeywordTok{PMT}\NormalTok{(}\FloatTok{0.06}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{27}\NormalTok{*}\DecValTok{12}\NormalTok{, -}\FloatTok{145090.4}\NormalTok{, }\DecValTok{0}\NormalTok{) =}\StringTok{ }\FloatTok{905.34}
 
 \CommentTok{# 3}
-\NormalTok{=}\KeywordTok{PMT}\NormalTok{(}\FloatTok{0.07}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{29}\NormalTok{*}\DecValTok{12}\NormalTok{, -}\DecValTok{197}\NormalTok{,}\DecValTok{543}\NormalTok{, }\DecValTok{0}\NormalTok{) =}\StringTok{ }\DecValTok{1}\NormalTok{,}\FloatTok{327.7}
+\NormalTok{=}\KeywordTok{PMT}\NormalTok{(}\FloatTok{0.07}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{30}\NormalTok{*}\DecValTok{12}\NormalTok{, -}\DecValTok{150000}\NormalTok{, }\DecValTok{150000}\NormalTok{) =}\StringTok{ }\DecValTok{875}
+\NormalTok{=}\KeywordTok{FV}\NormalTok{(}\FloatTok{0.07}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{12}\NormalTok{*}\DecValTok{3}\NormalTok{, }\DecValTok{875}\NormalTok{, }\DecValTok{150000}\NormalTok{) =}\StringTok{ }\NormalTok{-}\DecValTok{150}\NormalTok{,}\DecValTok{000}
+\NormalTok{=}\KeywordTok{PMT}\NormalTok{(}\FloatTok{0.06}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{27}\NormalTok{*}\DecValTok{12}\NormalTok{, -}\DecValTok{150000}\NormalTok{, }\DecValTok{0}\NormalTok{) =}\StringTok{ }\FloatTok{935.978}
 \end{Highlighting}
 \end{Shaded}
 
