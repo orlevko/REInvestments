@@ -222,7 +222,7 @@ Compared with FRM, lender faces less risk.
 
 \section{Exercises (from the book)}\label{exercises-from-the-book}
 
-\begin{frame}{Problem 2 (P.164)}
+\begin{frame}{Problem 2 (P.146)}
 
 \small
 
@@ -261,13 +261,13 @@ percent.
 \NormalTok{See Excel}
 
 \CommentTok{# 1}
-\NormalTok{=}\KeywordTok{PMT}\NormalTok{(}\FloatTok{0.06}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{30}\NormalTok{*}\DecValTok{12}\NormalTok{, -}\DecValTok{200}\NormalTok{,}\DecValTok{000}\NormalTok{, }\DecValTok{0}\NormalTok{) =}\StringTok{ }\DecValTok{1}\NormalTok{,}\FloatTok{199.1}
+\NormalTok{=}\KeywordTok{PMT}\NormalTok{(}\FloatTok{0.06}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{30}\NormalTok{*}\DecValTok{12}\NormalTok{, -}\DecValTok{200000}\NormalTok{, }\DecValTok{0}\NormalTok{) =}\StringTok{ }\DecValTok{1}\NormalTok{,}\FloatTok{199.1}
 
 \CommentTok{# 2}
-\NormalTok{=}\KeywordTok{FV}\NormalTok{(}\FloatTok{0.06}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{12}\NormalTok{, -}\DecValTok{1}\NormalTok{,}\FloatTok{199.1}\NormalTok{, }\DecValTok{200}\NormalTok{,}\DecValTok{000}\NormalTok{) =}\StringTok{ }\DecValTok{197}\NormalTok{,}\DecValTok{543}
+\NormalTok{=}\KeywordTok{FV}\NormalTok{(}\FloatTok{0.06}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{12}\NormalTok{, -}\FloatTok{1199.1}\NormalTok{, }\DecValTok{200000}\NormalTok{) =}\StringTok{ }\NormalTok{-}\DecValTok{197}\NormalTok{,}\DecValTok{543}
 
 \CommentTok{# 3}
-\NormalTok{=}\KeywordTok{PMT}\NormalTok{(}\FloatTok{0.07}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{29}\NormalTok{*}\DecValTok{12}\NormalTok{, -}\DecValTok{197}\NormalTok{,}\DecValTok{543}\NormalTok{, }\DecValTok{0}\NormalTok{) =}\StringTok{ }\DecValTok{1}\NormalTok{,}\FloatTok{327.7}
+\NormalTok{=}\KeywordTok{PMT}\NormalTok{(}\FloatTok{0.07}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{29}\NormalTok{*}\DecValTok{12}\NormalTok{, -}\DecValTok{197543}\NormalTok{, }\DecValTok{0}\NormalTok{) =}\StringTok{ }\DecValTok{1}\NormalTok{,}\FloatTok{327.7}
 \end{Highlighting}
 \end{Shaded}
 
@@ -278,13 +278,13 @@ percent.
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# 4}
-\NormalTok{=}\KeywordTok{FV}\NormalTok{(}\FloatTok{0.07}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{12}\NormalTok{, -}\DecValTok{1}\NormalTok{,}\FloatTok{327.7}\NormalTok{, }\DecValTok{197}\NormalTok{,}\DecValTok{543}\NormalTok{) =}\StringTok{ }\DecValTok{195}\NormalTok{,}\DecValTok{370}
+\NormalTok{=}\KeywordTok{FV}\NormalTok{(}\FloatTok{0.07}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{12}\NormalTok{, -}\FloatTok{1327.7}\NormalTok{, }\DecValTok{197543}\NormalTok{) =}\StringTok{ }\NormalTok{-}\DecValTok{195}\NormalTok{,}\DecValTok{370}
 
 \CommentTok{# 5 }
-\NormalTok{=}\KeywordTok{PMT}\NormalTok{(}\FloatTok{0.06}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{30}\NormalTok{*}\DecValTok{12}\NormalTok{, -}\DecValTok{200}\NormalTok{,}\DecValTok{000}\NormalTok{, }\DecValTok{200}\NormalTok{,}\DecValTok{000}\NormalTok{) =}\StringTok{ }\DecValTok{1}\NormalTok{,}\DecValTok{000}
+\NormalTok{=}\KeywordTok{PMT}\NormalTok{(}\FloatTok{0.06}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{30}\NormalTok{*}\DecValTok{12}\NormalTok{, -}\DecValTok{200000}\NormalTok{, }\DecValTok{200000}\NormalTok{) =}\StringTok{ }\DecValTok{1}\NormalTok{,}\DecValTok{000}
 
 \CommentTok{# 6}
-\NormalTok{=}\KeywordTok{PMT}\NormalTok{(}\FloatTok{0.07}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{29}\NormalTok{*}\DecValTok{12}\NormalTok{, -}\DecValTok{200}\NormalTok{,}\DecValTok{000}\NormalTok{, }\DecValTok{200}\NormalTok{,}\DecValTok{000}\NormalTok{) =}\StringTok{ }\DecValTok{1}\NormalTok{,}\DecValTok{167}
+\NormalTok{=}\KeywordTok{PMT}\NormalTok{(}\FloatTok{0.07}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{29}\NormalTok{*}\DecValTok{12}\NormalTok{, -}\DecValTok{200000}\NormalTok{, }\DecValTok{200000}\NormalTok{) =}\StringTok{ }\DecValTok{1}\NormalTok{,}\DecValTok{167}
 \end{Highlighting}
 \end{Shaded}
 
@@ -292,7 +292,7 @@ percent.
 
 \end{frame}
 
-\begin{frame}{Problem 3 (P.165)}
+\begin{frame}{Problem 3 (P.147)}
 
 \small
 
@@ -332,8 +332,85 @@ a 30-year maturity.
 
 \CommentTok{# 3}
 \NormalTok{=}\KeywordTok{PMT}\NormalTok{(}\FloatTok{0.07}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{30}\NormalTok{*}\DecValTok{12}\NormalTok{, -}\DecValTok{150000}\NormalTok{, }\DecValTok{150000}\NormalTok{) =}\StringTok{ }\DecValTok{875}
-\NormalTok{=}\KeywordTok{FV}\NormalTok{(}\FloatTok{0.07}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{12}\NormalTok{*}\DecValTok{3}\NormalTok{, }\DecValTok{875}\NormalTok{, }\DecValTok{150000}\NormalTok{) =}\StringTok{ }\NormalTok{-}\DecValTok{150}\NormalTok{,}\DecValTok{000}
+\NormalTok{=}\KeywordTok{FV}\NormalTok{(}\FloatTok{0.07}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{12}\NormalTok{*}\DecValTok{3}\NormalTok{, -}\DecValTok{875}\NormalTok{, }\DecValTok{150000}\NormalTok{) =}\StringTok{ }\NormalTok{-}\DecValTok{150}\NormalTok{,}\DecValTok{000}
 \NormalTok{=}\KeywordTok{PMT}\NormalTok{(}\FloatTok{0.06}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{27}\NormalTok{*}\DecValTok{12}\NormalTok{, -}\DecValTok{150000}\NormalTok{, }\DecValTok{0}\NormalTok{) =}\StringTok{ }\FloatTok{935.978}
+\end{Highlighting}
+\end{Shaded}
+
+\normalsize
+
+\end{frame}
+
+\begin{frame}{Problem 5 (P.147)}
+
+\small
+
+An interest only ARM is made for \$200,000 for 30 years. The start rate
+is 5 percent and the borrower will make monthly interest only payments
+for 3 years. Payments thereafter must be sufficient to fully amortize
+the loan at maturity.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  If the borrower makes interest only payments for 3 years, what will
+  payments be?
+\item
+  Assume that at the end of year 3, the reset rate is 6 percent. The
+  borrower must now make payments so as to fully amortize the loan. What
+  will payments be?
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}[fragile]{Problem 5 answer}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# 1}
+\NormalTok{=}\KeywordTok{PMT}\NormalTok{(}\FloatTok{0.05}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{30}\NormalTok{*}\DecValTok{12}\NormalTok{, -}\DecValTok{200000}\NormalTok{, }\DecValTok{200000}\NormalTok{) =}\StringTok{ }\FloatTok{833.3333}
+
+\CommentTok{# 2}
+\NormalTok{=}\KeywordTok{PMT}\NormalTok{(}\FloatTok{0.06}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{27}\NormalTok{*}\DecValTok{12}\NormalTok{, -}\DecValTok{200000}\NormalTok{, }\DecValTok{0}\NormalTok{) =}\StringTok{ }\DecValTok{1}\NormalTok{,}\FloatTok{247.971}
+\end{Highlighting}
+\end{Shaded}
+
+\normalsize
+
+\end{frame}
+
+\begin{frame}{Problem 10 (P.147)}
+
+\small
+
+A floating rate mortgage loan is made for \$100,000 for a 30-year period
+at an initial rate of 12 percent interest. However, the borrower and
+lender have negotiated a monthly payment of \$800.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  What will be the loan balance at the end of year 1?
+\item
+  What if the interest rate increases to 13 percent at the end of year
+  1? How much interest will be accrued as negative amortization in year
+  1 if the payment remains at \$800? Year 5?
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}[fragile]{Problem 10 answer}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# 1}
+\NormalTok{=}\KeywordTok{FV}\NormalTok{(}\FloatTok{0.12}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{12}\NormalTok{*}\DecValTok{1}\NormalTok{, -}\DecValTok{800}\NormalTok{, }\DecValTok{100000}\NormalTok{) =}\StringTok{ }\NormalTok{-}\DecValTok{102}\NormalTok{,}\FloatTok{536.5} \NormalTok{(}\CommentTok{#year 1)}
+
+\CommentTok{#2}
+\NormalTok{=}\KeywordTok{FV}\NormalTok{(}\FloatTok{0.13}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{12}\NormalTok{*}\DecValTok{1}\NormalTok{, -}\DecValTok{800}\NormalTok{, }\FloatTok{102536.5}\NormalTok{) =}\StringTok{ }\NormalTok{-}\DecValTok{106}\NormalTok{,}\FloatTok{496.7} \NormalTok{(}\CommentTok{# year 2)}
+\NormalTok{=}\KeywordTok{FV}\NormalTok{(}\FloatTok{0.13}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{12}\NormalTok{*}\DecValTok{5}\NormalTok{, -}\DecValTok{800}\NormalTok{, }\FloatTok{102536.5}\NormalTok{) =}\StringTok{ }\NormalTok{-}\DecValTok{128}\NormalTok{,}\FloatTok{611.9} \NormalTok{(}\CommentTok{# year 6)}
 \end{Highlighting}
 \end{Shaded}
 

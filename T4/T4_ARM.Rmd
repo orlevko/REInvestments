@@ -71,7 +71,7 @@ $i = r + f + p$
 
 
 # Exercises (from the book)
-## Problem 2 (P.164)
+## Problem 2 (P.146)
 
 \small
 
@@ -97,7 +97,7 @@ See Excel
 =PMT(0.06/12, 30*12, -200000, 0) = 1,199.1
 
 # 2
-=FV(0.06/12, 12, -1199.1, 200000) = 197,543
+=FV(0.06/12, 12, -1199.1, 200000) = -197,543
 
 # 3
 =PMT(0.07/12, 29*12, -197543, 0) = 1,327.7
@@ -107,7 +107,7 @@ See Excel
 
 ```{r book ex2.2, results='hide', eval = FALSE}
 # 4
-=FV(0.07/12, 12, -1327.7, 197543) = 195,370
+=FV(0.07/12, 12, -1327.7, 197543) = -195,370
 
 # 5 
 =PMT(0.06/12, 30*12, -200000, 200000) = 1,000
@@ -118,7 +118,7 @@ See Excel
 ```
 \normalsize
 
-## Problem 3 (P.165)
+## Problem 3 (P.147)
 
 \small
 
@@ -143,6 +143,52 @@ See Excel
 
 # 3
 =PMT(0.07/12, 30*12, -150000, 150000) = 875
-=FV(0.07/12, 12*3, 875, 150000) = -150,000
+=FV(0.07/12, 12*3, -875, 150000) = -150,000
 =PMT(0.06/12, 27*12, -150000, 0) = 935.978
+```
+
+\normalsize
+
+## Problem 5 (P.147)
+
+\small
+
+An interest only ARM is made for $200,000 for 30 years. The start rate is 5 percent and the borrower will make monthly interest only payments for 3 years. Payments thereafter must be sufficient to fully amortize the loan at maturity. 
+
+a. If the borrower makes interest only payments for 3 years, what will payments be? 
+b. Assume that at the end of year 3, the reset rate is 6 percent. The borrower must now make payments so as to fully amortize the loan. What will payments be?
+
+
+## Problem 5 answer
+
+```{r book ex5, results='hide', eval = FALSE}
+# 1
+=PMT(0.05/12, 30*12, -200000, 200000) = 833.3333
+
+# 2
+=PMT(0.06/12, 27*12, -200000, 0) = 1,247.971
+```
+
+\normalsize
+
+## Problem 10 (P.147)
+
+\small
+
+A floating rate mortgage loan is made for \$100,000 for a 30-year period at an initial rate of 12 percent interest. However, the borrower and lender have negotiated a monthly payment of \$800. 
+
+a. What will be the loan balance at the end of year 1? 
+b. What if the interest rate increases to 13 percent at the end of year 1? How much interest will be accrued as negative amortization in year 1 if the payment remains at $800? Year 5?
+
+
+## Problem 10 answer
+
+```{r book ex10, results='hide', eval = FALSE}
+# 1
+=FV(0.12/12, 12*1, -800, 100000) = -102,536.5 (#year 1)
+
+#2
+=FV(0.13/12, 12*1, -800, 102536.5) = -106,496.7 (# year 2)
+=FV(0.13/12, 12*5, -800, 102536.5) = -128,611.9 (# year 6)
+
 ```
