@@ -42,13 +42,15 @@ $i = r + f + p$
 
 $i = r + f + p$
 
-- $r, f, p$ are adjustable: rate is linked to **interest rate index**.
+- $r, f, p$ are adjustable: rate is linked to **index interest rate**.
     - Let market expectations of $r, p, f$ determine $i$.
     - Mortgage interest rates reflects future expectations and not past outcomes.
     
 Important observations:
+
+- Compared with FRM, lender faces less risk and borrower bears more risk. 
 - Risk depends on the adjustment intervals.
-- Compared with FRM, lender faces less risk. 
+
 
 
 ## Adjustable rate mortgages (ARM)
@@ -57,7 +59,18 @@ $i = r + f + p$
 
 - **Hybrid ARM** 
     - ARM rates adjust in relatively long intervals (i.e, every few years).
-    - Interest rate risk is divided between borrower and lender.
+    - Interest rate risk is better divided between borrower and lender (compared with other ARM).
+    
+- Risk to lender:
+
+\small
+
+*FRM* $>$ *ARM (Hybrid - capped interest rates)* $>$ *FRM (Hybrid - capped payments)* $>$ *ARM (no limit)*
+
+\normalsize
+
+(Lower risk = lower demanded premium)
+
 
 ## ARM main characteristics and terms
 
