@@ -184,6 +184,39 @@ b. Assume that at the end of year 3, the reset rate is 6 percent. The borrower m
 
 \normalsize
 
+## Problem 6 (P.147)
+
+\footnotesize
+
+A borrower has been analyzing different ARM alternatives for the purchase of a property. The borrower anticipates owning the property for five years. The lender first offers a \$150,000, 30-year fully amortizing ARM with the following terms: 
+
+- Initial interest rate = 6\%
+- Payments = Reset each year 
+- Margin = 2\% 
+- Negative amortization = Not allowed 
+- Discount points = 2\% 
+
+Based on estimated forward rates, the index to which the ARM is tied is forecasted as follows:
+
+- Beginning of year 2 = 7\%
+- Beginning of year 3 = 8.5\%
+- Beginning of year 4 = 9.5\%
+- Beginning of year 5 = 11\%
+
+Compute the payments, loan balances, and yield for the unrestricted ARM for the five-year period. 
+
+
+## Problem 6 answer
+
+```{r book ex6, results='hide', eval = FALSE}
+
+See excel.
+
+```
+
+
+\normalsize
+
 ## Problem 10 (P.147)
 
 \small
