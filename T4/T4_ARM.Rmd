@@ -259,7 +259,7 @@ A borrower can obtain an 80\% loan with an 8\% interest rate and monthly payment
 0.08\*80\% + x\*10\% = 0.08\*90\%, or x = 12.5\%.
 
 2. Points:
-
+ 
 0.08\*80\% + x\*(10\%-2\%) = 0.08\*90\%, or x = 15.625\%.
 
 
