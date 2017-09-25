@@ -543,7 +543,7 @@ loan term.
 
 \end{frame}
 
-\begin{frame}[fragile]{Problem 1 answer}
+\begin{frame}[fragile]{Problem 1 answer (continued)}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -562,7 +562,7 @@ loan term.
 \NormalTok{FV1 =}\StringTok{ }\KeywordTok{FV}\NormalTok{(}\FloatTok{0.08}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{12}\NormalTok{*}\DecValTok{5}\NormalTok{, -}\FloatTok{6.17}\NormalTok{, }\DecValTok{800}\NormalTok{) =}\StringTok{ }\FloatTok{738.19}
 \NormalTok{FV2 =}\StringTok{ }\KeywordTok{FV}\NormalTok{(}\FloatTok{0.085}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{12}\NormalTok{*}\DecValTok{5}\NormalTok{, -}\FloatTok{7.25}\NormalTok{, }\DecValTok{900}\NormalTok{) =}\StringTok{ }\FloatTok{835.08}
 
-\NormalTok{Difference in PV:}\StringTok{ }\NormalTok{Pv1-Pv2 =}\StringTok{ }\NormalTok{-}\DecValTok{100}
+\NormalTok{Difference in PV:}\StringTok{ }\NormalTok{PV1-PV2 =}\StringTok{ }\DecValTok{100}
 \NormalTok{Difference in payment:}\StringTok{ }\NormalTok{p1-p2 =}\StringTok{ }\NormalTok{-}\FloatTok{1.07}
 \NormalTok{Difference in 5Y FV:}\StringTok{ }\NormalTok{FV1-FV2 =}\StringTok{ }\NormalTok{-}\FloatTok{96.89}
 
@@ -576,6 +576,25 @@ loan term.
 
 \begin{frame}{Problem 3 (P.177)}
 
+An investor obtained a fully amortizing mortgage 5 years ago for
+\$95,000 at 11\% for 30 years. Mortgage rates have dropped, so that a
+fully amortizing 25-year loan can be obtained at 10\%. There is no
+prepayment penalty on the mortgage balance of the original loan, but
+three points will be charged on the new loan and other closing costs
+will be \$2,000. All payments are monthly.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  Should the borrower refinance if he plans to own the property for the
+  remaining loan term? Assume that the investor borrows only an amount
+  equal to the outstanding balance of the loan.
+\item
+  Would your answer to (1) change if he planned to own the property for
+  only 5 more years?
+\end{enumerate}
+
 \small
 
 \end{frame}
@@ -584,25 +603,56 @@ loan term.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{p1 =}\StringTok{ }\KeywordTok{PMT}\NormalTok{(}\FloatTok{0.08}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{12}\NormalTok{*}\DecValTok{25}\NormalTok{, -}\DecValTok{800}\NormalTok{) =}\StringTok{ }\FloatTok{6.17} \NormalTok{monthly}
-\NormalTok{p2 =}\StringTok{ }\KeywordTok{PMT}\NormalTok{(}\FloatTok{0.085}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{12}\NormalTok{*}\DecValTok{25}\NormalTok{, -}\DecValTok{900}\NormalTok{) =}\StringTok{ }\FloatTok{7.25} \NormalTok{monthly}
+\CommentTok{# 1}
+\NormalTok{=}\KeywordTok{PMT}\NormalTok{(}\FloatTok{0.11}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{30}\NormalTok{*}\DecValTok{12}\NormalTok{, }\DecValTok{95000}\NormalTok{, }\DecValTok{0}\NormalTok{) =}\StringTok{ }\NormalTok{-}\FloatTok{904.71}
+\NormalTok{=}\KeywordTok{FV}\NormalTok{(}\FloatTok{0.11}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{5}\NormalTok{*}\DecValTok{12}\NormalTok{, -}\FloatTok{904.71}\NormalTok{, }\DecValTok{95000}\NormalTok{) =}\StringTok{ }\DecValTok{92}\NormalTok{,}\FloatTok{306.19}
+\NormalTok{=}\KeywordTok{PMT}\NormalTok{(}\FloatTok{0.10}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{25}\NormalTok{*}\DecValTok{12}\NormalTok{, }\FloatTok{92306.19}\NormalTok{*(}\DecValTok{1}\FloatTok{-0.03}\NormalTok{)*(}\FloatTok{1.02}\NormalTok{), }\DecValTok{0}\NormalTok{) =}
+\StringTok{  }\NormalTok{-}\FloatTok{829.9}
 
-\NormalTok{FV1 =}\StringTok{ }\KeywordTok{FV}\NormalTok{(}\FloatTok{0.08}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{12}\NormalTok{*}\DecValTok{5}\NormalTok{, -}\FloatTok{6.17}\NormalTok{, }\DecValTok{800}\NormalTok{) =}\StringTok{ }\FloatTok{738.19}
-\NormalTok{FV2 =}\StringTok{ }\KeywordTok{FV}\NormalTok{(}\FloatTok{0.085}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{12}\NormalTok{*}\DecValTok{5}\NormalTok{, -}\FloatTok{7.25}\NormalTok{, }\DecValTok{900}\NormalTok{) =}\StringTok{ }\FloatTok{835.08}
-
-\NormalTok{Difference in PV:}\StringTok{ }\NormalTok{Pv1-Pv2 =}\StringTok{ }\NormalTok{-}\DecValTok{100}
-\NormalTok{Difference in payment:}\StringTok{ }\NormalTok{p1-p2 =}\StringTok{ }\NormalTok{-}\FloatTok{1.07}
-\NormalTok{Difference in 5Y FV:}\StringTok{ }\NormalTok{FV1-FV2 =}\StringTok{ }\NormalTok{-}\FloatTok{96.89}
-
-\NormalTok{Solve :}\StringTok{ }\ErrorTok{=}\DecValTok{12}\NormalTok{*}\KeywordTok{RATE}\NormalTok{(}\DecValTok{5}\NormalTok{*}\DecValTok{12}\NormalTok{, -}\FloatTok{1.07}\NormalTok{, }\DecValTok{100}\NormalTok{, -}\FloatTok{96.89}\NormalTok{) =}\StringTok{ }\FloatTok{12.42}\NormalTok{\textbackslash{}%}
+\CommentTok{# 2}
+\NormalTok{=}\KeywordTok{FV}\NormalTok{(}\FloatTok{0.11}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{10}\NormalTok{*}\DecValTok{12}\NormalTok{, -}\FloatTok{904.71}\NormalTok{, }\DecValTok{95000}\NormalTok{) =}\StringTok{ }\DecValTok{87}\NormalTok{,}\FloatTok{648.83}
+\NormalTok{=}\KeywordTok{PMT}\NormalTok{(}\FloatTok{0.10}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{20}\NormalTok{*}\DecValTok{12}\NormalTok{, }\FloatTok{87648.83}\NormalTok{*(}\DecValTok{1}\FloatTok{-0.03}\NormalTok{)*(}\FloatTok{1.02}\NormalTok{), }\DecValTok{0}\NormalTok{) =}\StringTok{ }
+\StringTok{  }\NormalTok{-}\FloatTok{836.86}
 \end{Highlighting}
 \end{Shaded}
-
-\normalsize
 
 \end{frame}
 
 \begin{frame}{Problem 5 (P.177)}
+
+\small
+
+You have a choice between the following two identical properties:
+
+\begin{itemize}
+\tightlist
+\item
+  Property A: priced at \$150,000 with 80\% financing at a 10.5\%
+  interest rate for 20 years.
+\item
+  Property B: priced at \$160,000 with an assumable mortgage of
+  \$100,000 at 9\% interest with 20 years remaining.
+\end{itemize}
+
+Monthly payments are \$899.73. A second mortgage for \$20,000 can be
+obtained at 13\% interest for 20 years. All loans require monthly
+payments and are fully amortizing.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  Which property would you choose?
+\item
+  How would your answer change if the seller of Property B provided a
+  second mortgage for \$20,000 at the same 9\% rate as the assumable
+  loan?
+\item
+  How would your answer change if the seller of Property B provided a
+  second mortgage for \$30,000 at the same 9\% rate as the assumable
+  loan so that no additional down payment would be required by the buyer
+  if the loan were assumed?
+\end{enumerate}
 
 \small
 

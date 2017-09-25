@@ -263,11 +263,11 @@ A borrower can obtain an 80\% loan with an 8\% interest rate and monthly payment
 0.08\*80\% + x\*(10\%-2\%) = 0.08\*90\%, or x = 15.625\%.
 
 
-## Problem 1 answer
+## Problem 1 answer (continued)
 
 3. Early repayment, loan balance after five years (assume loan balance = 1,000):
 
-```{r book ex6.3, results='hide', eval = FALSE}
+```{r book ex6.1, results='hide', eval = FALSE}
 p1 = PMT(0.08/12, 12*25, -800) = 6.17 monthly
 p2 = PMT(0.085/12, 12*25, -900) = 7.25 monthly
 
@@ -286,16 +286,44 @@ Solve : =12*RATE(5*12, -1.07, 100, -96.89) = 12.42\%
 
 ## Problem 3 (P.177)
 
+An investor obtained a fully amortizing mortgage 5 years ago for $95,000 at 11\% for 30 years. Mortgage rates have dropped, so that a fully amortizing 25-year loan can be obtained at 10\%. There is no prepayment penalty on the mortgage balance of the original loan, but three points will be charged on the new loan and other closing costs will be \$2,000. All payments are monthly.
+
+a. Should the borrower refinance if he plans to own the property for the remaining loan term? Assume that the investor borrows only an amount equal to the outstanding balance of the loan.
+b. Would your answer to (1) change if he planned to own the property for only 5 more years?
+
 \small
 
 ## Problem 3 answer
 
 ```{r book ex6.3, results='hide', eval = FALSE}
+# 1
+=PMT(0.11/12, 30*12, 95000, 0) = -904.71
+=FV(0.11/12, 5*12, -904.71, 95000) = 92,306.19
+=PMT(0.10/12, 25*12, 92306.19*(1-0.03)*(1.02), 0) =
+  -829.9
+
+# 2
+=FV(0.11/12, 10*12, -904.71, 95000) = 87,648.83
+=PMT(0.10/12, 20*12, 87648.83*(1-0.03)*(1.02), 0) = 
+  -836.86
 ```
 
-\normalsize
+
 
 ## Problem 5 (P.177)
+
+\small
+
+You have a choice between the following two identical properties: 
+
+- Property A: priced at \$150,000 with 80\% financing at a 10.5\% interest rate for 20 years. 
+- Property B: priced at \$160,000 with an assumable mortgage of \$100,000 at 9\% interest with 20 years remaining. 
+
+Monthly payments are \$899.73. A second mortgage for \$20,000 can be obtained at 13\% interest for 20 years. All loans require monthly payments and are fully amortizing.
+
+a. Which property would you choose?
+b. How would your answer change if the seller of Property B provided a second mortgage for \$20,000 at the same 9\% rate as the assumable loan?
+c. How would your answer change if the seller of Property B provided a second mortgage for \$30,000 at the same 9\% rate as the assumable loan so that no additional down payment would be required by the buyer if the loan were assumed?
 
 \small
 
