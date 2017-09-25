@@ -316,8 +316,8 @@ percent.
 
 \small
 
-A 3/1 ARM (reset after 3 years) is made for \$150,000 at 7 percent with
-a 30-year maturity.
+A 3/1 ARM (reset after 3 years) is made for \$150,000 at 7\% with a
+30-year maturity.
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi}.}
@@ -328,11 +328,11 @@ a 30-year maturity.
   payments? What will be the loan balance after three years?
 \item
   What would new payments be beginning in year 4 if the interest rate
-  fell to 6 percent and the loan continued to be fully amortizing?
+  fell to 6\% and the loan continued to be fully amortizing?
 \item
-  In (a) what would monthly payments be during year 1 if they were
+  In (1) what would monthly payments be during year 1 if they were
   interest only? What would payments be beginning in year 4 if interest
-  rates fell to 6 percent and the loan became fully amortizing?
+  rates fell to 6\% and the loan became fully amortizing?
 \end{enumerate}
 
 \end{frame}
@@ -366,9 +366,9 @@ a 30-year maturity.
 \small
 
 An interest only ARM is made for \$200,000 for 30 years. The start rate
-is 5 percent and the borrower will make monthly interest only payments
-for 3 years. Payments thereafter must be sufficient to fully amortize
-the loan at maturity.
+is 5\% and the borrower will make monthly interest only payments for 3
+years. Payments thereafter must be sufficient to fully amortize the loan
+at maturity.
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi}.}
@@ -377,9 +377,9 @@ the loan at maturity.
   If the borrower makes interest only payments for 3 years, what will
   payments be?
 \item
-  Assume that at the end of year 3, the reset rate is 6 percent. The
-  borrower must now make payments so as to fully amortize the loan. What
-  will payments be?
+  Assume that at the end of year 3, the reset rate is 6\%. The borrower
+  must now make payments so as to fully amortize the loan. What will
+  payments be?
 \end{enumerate}
 
 \end{frame}
@@ -460,8 +460,8 @@ for the five-year period.
 \small
 
 A floating rate mortgage loan is made for \$100,000 for a 30-year period
-at an initial rate of 12 percent interest. However, the borrower and
-lender have negotiated a monthly payment of \$800.
+at an initial rate of 12\% interest. However, the borrower and lender
+have negotiated a monthly payment of \$800.
 
 \begin{enumerate}
 \def\labelenumi{\alph{enumi}.}
@@ -469,9 +469,9 @@ lender have negotiated a monthly payment of \$800.
 \item
   What will be the loan balance at the end of year 1?
 \item
-  What if the interest rate increases to 13 percent at the end of year
-  1? How much interest will be accrued as negative amortization in year
-  1 if the payment remains at \$800? Year 5?
+  What if the interest rate increases to 13\% at the end of year 1? How
+  much interest will be accrued as negative amortization in year 1 if
+  the payment remains at \$800? Year 5?
 \end{enumerate}
 
 \end{frame}
@@ -488,6 +488,127 @@ lender have negotiated a monthly payment of \$800.
 \NormalTok{=}\KeywordTok{FV}\NormalTok{(}\FloatTok{0.13}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{12}\NormalTok{*}\DecValTok{5}\NormalTok{, -}\DecValTok{800}\NormalTok{, }\FloatTok{102536.5}\NormalTok{) =}\StringTok{ }\NormalTok{-}\DecValTok{128}\NormalTok{,}\FloatTok{611.9} \NormalTok{(}\CommentTok{# year 6)}
 \end{Highlighting}
 \end{Shaded}
+
+\normalsize
+
+\end{frame}
+
+\begin{frame}{Problem 1 (P.177)}
+
+\small
+A borrower can obtain an 80\% loan with an 8\% interest rate and monthly
+payments. The loan is to be fully amortized over 25 years.
+Alternatively, he could obtain a 90\% loan at an 8.5\% rate with the
+same loan term. The borrower plans to own the property for the entire
+loan term.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  What is the incremental cost of borrowing the additional funds? (Hint:
+  The dollar amount of the loan doesn't affect the answer.)
+\item
+  How would your answer change if two points were charged on the 90\%
+  loan?
+\item
+  Would your answer to (2) change if the borrower planned to own the
+  property for only five years?
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}{Problem 1 answer}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Marginal cost of borrowing additional 10\%: 8\% Interest on 80\%
+  compared with 8.5\% interest on (80\%+10\%=90\%). Lending additional
+  10\% is equivalent to:
+\end{enumerate}
+
+0.08*80\% + x*10\% = 0.08*90\%, or x = 12.5\%.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Points:
+\end{enumerate}
+
+0.08*80\% + x*(10\%-2\%) = 0.08*90\%, or x = 15.625\%.
+
+\end{frame}
+
+\begin{frame}[fragile]{Problem 1 answer}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Early repayment, loan balance after five years (assume loan balance =
+  1,000):
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{p1 =}\StringTok{ }\KeywordTok{PMT}\NormalTok{(}\FloatTok{0.08}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{12}\NormalTok{*}\DecValTok{25}\NormalTok{, -}\DecValTok{800}\NormalTok{) =}\StringTok{ }\FloatTok{6.17} \NormalTok{monthly}
+\NormalTok{p2 =}\StringTok{ }\KeywordTok{PMT}\NormalTok{(}\FloatTok{0.085}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{12}\NormalTok{*}\DecValTok{25}\NormalTok{, -}\DecValTok{900}\NormalTok{) =}\StringTok{ }\FloatTok{7.25} \NormalTok{monthly}
+
+\NormalTok{FV1 =}\StringTok{ }\KeywordTok{FV}\NormalTok{(}\FloatTok{0.08}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{12}\NormalTok{*}\DecValTok{5}\NormalTok{, -}\FloatTok{6.17}\NormalTok{, }\DecValTok{800}\NormalTok{) =}\StringTok{ }\FloatTok{738.19}
+\NormalTok{FV2 =}\StringTok{ }\KeywordTok{FV}\NormalTok{(}\FloatTok{0.085}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{12}\NormalTok{*}\DecValTok{5}\NormalTok{, -}\FloatTok{7.25}\NormalTok{, }\DecValTok{900}\NormalTok{) =}\StringTok{ }\FloatTok{835.08}
+
+\NormalTok{Difference in PV:}\StringTok{ }\NormalTok{Pv1-Pv2 =}\StringTok{ }\NormalTok{-}\DecValTok{100}
+\NormalTok{Difference in payment:}\StringTok{ }\NormalTok{p1-p2 =}\StringTok{ }\NormalTok{-}\FloatTok{1.07}
+\NormalTok{Difference in 5Y FV:}\StringTok{ }\NormalTok{FV1-FV2 =}\StringTok{ }\NormalTok{-}\FloatTok{96.89}
+
+\NormalTok{Solve :}\StringTok{ }\ErrorTok{=}\DecValTok{12}\NormalTok{*}\KeywordTok{RATE}\NormalTok{(}\DecValTok{5}\NormalTok{*}\DecValTok{12}\NormalTok{, -}\FloatTok{1.07}\NormalTok{, }\DecValTok{100}\NormalTok{, -}\FloatTok{96.89}\NormalTok{) =}\StringTok{ }\FloatTok{12.42}\NormalTok{\textbackslash{}%}
+\end{Highlighting}
+\end{Shaded}
+
+\normalsize
+
+\end{frame}
+
+\begin{frame}{Problem 3 (P.177)}
+
+\small
+
+\end{frame}
+
+\begin{frame}[fragile]{Problem 3 answer}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{p1 =}\StringTok{ }\KeywordTok{PMT}\NormalTok{(}\FloatTok{0.08}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{12}\NormalTok{*}\DecValTok{25}\NormalTok{, -}\DecValTok{800}\NormalTok{) =}\StringTok{ }\FloatTok{6.17} \NormalTok{monthly}
+\NormalTok{p2 =}\StringTok{ }\KeywordTok{PMT}\NormalTok{(}\FloatTok{0.085}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{12}\NormalTok{*}\DecValTok{25}\NormalTok{, -}\DecValTok{900}\NormalTok{) =}\StringTok{ }\FloatTok{7.25} \NormalTok{monthly}
+
+\NormalTok{FV1 =}\StringTok{ }\KeywordTok{FV}\NormalTok{(}\FloatTok{0.08}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{12}\NormalTok{*}\DecValTok{5}\NormalTok{, -}\FloatTok{6.17}\NormalTok{, }\DecValTok{800}\NormalTok{) =}\StringTok{ }\FloatTok{738.19}
+\NormalTok{FV2 =}\StringTok{ }\KeywordTok{FV}\NormalTok{(}\FloatTok{0.085}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{12}\NormalTok{*}\DecValTok{5}\NormalTok{, -}\FloatTok{7.25}\NormalTok{, }\DecValTok{900}\NormalTok{) =}\StringTok{ }\FloatTok{835.08}
+
+\NormalTok{Difference in PV:}\StringTok{ }\NormalTok{Pv1-Pv2 =}\StringTok{ }\NormalTok{-}\DecValTok{100}
+\NormalTok{Difference in payment:}\StringTok{ }\NormalTok{p1-p2 =}\StringTok{ }\NormalTok{-}\FloatTok{1.07}
+\NormalTok{Difference in 5Y FV:}\StringTok{ }\NormalTok{FV1-FV2 =}\StringTok{ }\NormalTok{-}\FloatTok{96.89}
+
+\NormalTok{Solve :}\StringTok{ }\ErrorTok{=}\DecValTok{12}\NormalTok{*}\KeywordTok{RATE}\NormalTok{(}\DecValTok{5}\NormalTok{*}\DecValTok{12}\NormalTok{, -}\FloatTok{1.07}\NormalTok{, }\DecValTok{100}\NormalTok{, -}\FloatTok{96.89}\NormalTok{) =}\StringTok{ }\FloatTok{12.42}\NormalTok{\textbackslash{}%}
+\end{Highlighting}
+\end{Shaded}
+
+\normalsize
+
+\end{frame}
+
+\begin{frame}{Problem 5 (P.177)}
+
+\small
+
+\end{frame}
+
+\begin{frame}{Problem 5 answer}
 
 \end{frame}
 
