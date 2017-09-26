@@ -518,28 +518,32 @@ loan term.
 
 \end{frame}
 
-\begin{frame}{Problem 1 answer}
+\begin{frame}[fragile]{Problem 1 answer}
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  Marginal cost of borrowing additional 10\%: 8\% Interest on 80\%
-  compared with 8.5\% interest on (80\%+10\%=90\%). Lending additional
-  10\% is equivalent to:
-\end{enumerate}
+\footnotesize
 
-0.08*80\% + x*10\% = 0.08*90\%, or x = 12.5\%.
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# 1. (assume loan balance = 1,000)}
+\NormalTok{p1 =}\StringTok{ }\KeywordTok{PMT}\NormalTok{(}\FloatTok{0.08}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{12}\NormalTok{*}\DecValTok{25}\NormalTok{, -}\DecValTok{800}\NormalTok{, }\DecValTok{0}\NormalTok{) =}\StringTok{ }\FloatTok{6.17} \NormalTok{monthly}
+\NormalTok{p2 =}\StringTok{ }\KeywordTok{PMT}\NormalTok{(}\FloatTok{0.085}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{12}\NormalTok{*}\DecValTok{25}\NormalTok{, -}\DecValTok{900}\NormalTok{) =}\StringTok{ }\FloatTok{7.25} \NormalTok{monthly}
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{1}
-\tightlist
-\item
-  Points:
-\end{enumerate}
+\NormalTok{Difference in PV:}\StringTok{ }\NormalTok{PV1-PV2 =}\StringTok{ }\DecValTok{100}
+\NormalTok{Difference in payment:}\StringTok{ }\NormalTok{p1-p2 =}\StringTok{ }\NormalTok{-}\FloatTok{1.07}
 
-0.08*80\% + x*(10\%-2\%) = 0.08*90\%, or x = 15.625\%.
+\NormalTok{Solve :}\StringTok{ }\ErrorTok{=}\DecValTok{12}\NormalTok{*}\KeywordTok{RATE}\NormalTok{(}\DecValTok{25}\NormalTok{*}\DecValTok{12}\NormalTok{, -}\FloatTok{1.07}\NormalTok{, }\DecValTok{100}\NormalTok{, }\DecValTok{0}\NormalTok{) =}\StringTok{ }\FloatTok{12.26}\NormalTok{\textbackslash{}%}
+
+\CommentTok{# 2 Points:}
+\NormalTok{p1 =}\StringTok{ }\KeywordTok{PMT}\NormalTok{(}\FloatTok{0.08}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{12}\NormalTok{*}\DecValTok{25}\NormalTok{, -}\DecValTok{800}\NormalTok{, }\DecValTok{0}\NormalTok{) =}\StringTok{ }\FloatTok{6.17} \NormalTok{monthly}
+\NormalTok{p2 =}\StringTok{ }\KeywordTok{PMT}\NormalTok{(}\FloatTok{0.085}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{12}\NormalTok{*}\DecValTok{25}\NormalTok{, -}\DecValTok{900}\NormalTok{) =}\StringTok{ }\FloatTok{7.25} \NormalTok{monthly}
+
+\NormalTok{Difference in PV:}\StringTok{ }\NormalTok{PV1-PV2 =}\StringTok{ }\DecValTok{100} \NormalTok{-}\StringTok{ }\FloatTok{0.02}\NormalTok{*}\DecValTok{900}
+    \NormalTok{=}\StringTok{ }\DecValTok{82}
+\NormalTok{Difference in payment:}\StringTok{ }\NormalTok{p1-p2 =}\StringTok{ }\NormalTok{-}\FloatTok{1.07}
+
+\NormalTok{Solve :}\StringTok{ }\ErrorTok{=}\DecValTok{12}\NormalTok{*}\KeywordTok{RATE}\NormalTok{(}\DecValTok{25}\NormalTok{*}\DecValTok{12}\NormalTok{, -}\FloatTok{1.07}\NormalTok{, }\DecValTok{82}\NormalTok{, }\DecValTok{0}\NormalTok{) =}\StringTok{ }\FloatTok{15.35}\NormalTok{\textbackslash{}%}
+\end{Highlighting}
+\end{Shaded}
 
 \end{frame}
 
@@ -550,8 +554,7 @@ loan term.
 \setcounter{enumi}{2}
 \tightlist
 \item
-  Early repayment, loan balance after five years (assume loan balance =
-  1,000):
+  Early repayment, loan balance after five years:
 \end{enumerate}
 
 \begin{Shaded}
@@ -605,60 +608,66 @@ will be \$2,000. All payments are monthly.
 \begin{Highlighting}[]
 \CommentTok{# 1}
 \NormalTok{=}\KeywordTok{PMT}\NormalTok{(}\FloatTok{0.11}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{30}\NormalTok{*}\DecValTok{12}\NormalTok{, }\DecValTok{95000}\NormalTok{, }\DecValTok{0}\NormalTok{) =}\StringTok{ }\NormalTok{-}\FloatTok{904.71}
-\NormalTok{=}\KeywordTok{FV}\NormalTok{(}\FloatTok{0.11}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{5}\NormalTok{*}\DecValTok{12}\NormalTok{, -}\FloatTok{904.71}\NormalTok{, }\DecValTok{95000}\NormalTok{) =}\StringTok{ }\DecValTok{92}\NormalTok{,}\FloatTok{306.19}
-\NormalTok{=}\KeywordTok{PMT}\NormalTok{(}\FloatTok{0.10}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{25}\NormalTok{*}\DecValTok{12}\NormalTok{, }\FloatTok{92306.19}\NormalTok{*(}\DecValTok{1}\FloatTok{-0.03}\NormalTok{)*(}\FloatTok{1.02}\NormalTok{), }\DecValTok{0}\NormalTok{) =}
-\StringTok{  }\NormalTok{-}\FloatTok{829.9}
+\NormalTok{=}\KeywordTok{FV}\NormalTok{(}\FloatTok{0.11}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{5}\NormalTok{*}\DecValTok{12}\NormalTok{, -}\FloatTok{904.71}\NormalTok{, }\DecValTok{95000}\NormalTok{) =}\StringTok{ }\NormalTok{-}\DecValTok{92}\NormalTok{,}\FloatTok{306.19}
+\NormalTok{=}\KeywordTok{PMT}\NormalTok{(}\FloatTok{0.10}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{25}\NormalTok{*}\DecValTok{12}\NormalTok{, }\FloatTok{92306.19}\NormalTok{/(}\DecValTok{1}\FloatTok{-0.03}\NormalTok{) +}\StringTok{ }\DecValTok{2000}\NormalTok{, }\DecValTok{0}\NormalTok{) =}
+\StringTok{  }\NormalTok{-}\FloatTok{882.9}
 
 \CommentTok{# 2}
-\NormalTok{=}\KeywordTok{FV}\NormalTok{(}\FloatTok{0.11}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{10}\NormalTok{*}\DecValTok{12}\NormalTok{, -}\FloatTok{904.71}\NormalTok{, }\DecValTok{95000}\NormalTok{) =}\StringTok{ }\DecValTok{87}\NormalTok{,}\FloatTok{648.83}
-\NormalTok{=}\KeywordTok{PMT}\NormalTok{(}\FloatTok{0.10}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{20}\NormalTok{*}\DecValTok{12}\NormalTok{, }\FloatTok{87648.83}\NormalTok{*(}\DecValTok{1}\FloatTok{-0.03}\NormalTok{)*(}\FloatTok{1.02}\NormalTok{), }\DecValTok{0}\NormalTok{) =}\StringTok{ }
-\StringTok{  }\NormalTok{-}\FloatTok{836.86}
+\NormalTok{=}\KeywordTok{FV}\NormalTok{(}\FloatTok{0.11}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{10}\NormalTok{*}\DecValTok{12}\NormalTok{, -}\FloatTok{904.71}\NormalTok{, }\DecValTok{95000}\NormalTok{) =}\StringTok{ }\NormalTok{-}\DecValTok{87}\NormalTok{,}\FloatTok{648.83}
+\NormalTok{=}\KeywordTok{PMT}\NormalTok{(}\FloatTok{0.10}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{20}\NormalTok{*}\DecValTok{12}\NormalTok{, }\FloatTok{87648.83}\NormalTok{/(}\DecValTok{1}\FloatTok{-0.03}\NormalTok{) +}\StringTok{ }\DecValTok{2000}\NormalTok{, }\DecValTok{0}\NormalTok{) =}\StringTok{ }
+\StringTok{  }\NormalTok{-}\FloatTok{891.29}
 \end{Highlighting}
 \end{Shaded}
 
 \end{frame}
 
-\begin{frame}{Problem 5 (P.177)}
+\begin{frame}{Problem 4 (P.177)}
 
 \small
-
-You have a choice between the following two identical properties:
-
-\begin{itemize}
-\tightlist
-\item
-  Property A: priced at \$150,000 with 80\% financing at a 10.5\%
-  interest rate for 20 years.
-\item
-  Property B: priced at \$160,000 with an assumable mortgage of
-  \$100,000 at 9\% interest with 20 years remaining.
-\end{itemize}
-
-Monthly payments are \$899.73. A second mortgage for \$20,000 can be
-obtained at 13\% interest for 20 years. All loans require monthly
-payments and are fully amortizing.
+Secondary Mortgage Purchasing Company (SMPC) wants to buy your mortgage
+from the local savings and loan. The original balance of your mortgage
+was \$140,000 and was obtained 5 years ago with monthly payments at 10\%
+interest. The loan was to be fully amortized over 30 years.
 
 \begin{enumerate}
-\def\labelenumi{\alph{enumi}.}
+\def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  Which property would you choose?
+  What should SMPC pay if it wants an 11\% return?
 \item
-  How would your answer change if the seller of Property B provided a
-  second mortgage for \$20,000 at the same 9\% rate as the assumable
-  loan?
-\item
-  How would your answer change if the seller of Property B provided a
-  second mortgage for \$30,000 at the same 9\% rate as the assumable
-  loan so that no additional down payment would be required by the buyer
-  if the loan were assumed?
+  How would your answer to (1) change if SMPC expected the loan to be
+  repaid after five years?
 \end{enumerate}
-
-\small
 
 \end{frame}
 
-\begin{frame}{Problem 5 answer}
+\begin{frame}[fragile]{Problem 4 answer}
+
+\footnotesize
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# 1}
+\NormalTok{=}\KeywordTok{PMT}\NormalTok{(}\FloatTok{0.10}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{30}\NormalTok{*}\DecValTok{12}\NormalTok{, }\DecValTok{140000}\NormalTok{, }\DecValTok{0}\NormalTok{) =}\StringTok{ }\NormalTok{-}\FloatTok{1228.60}
+
+\NormalTok{=}\KeywordTok{FV}\NormalTok{(}\FloatTok{0.10}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{5}\NormalTok{*}\DecValTok{12}\NormalTok{, -}\FloatTok{1228.60}\NormalTok{, }\DecValTok{140000}\NormalTok{) =}\StringTok{ }\NormalTok{-}\DecValTok{135}\NormalTok{,}\FloatTok{204.05}
+\CommentTok{# Loan balance after 5 years}
+
+\NormalTok{=}\KeywordTok{PV}\NormalTok{(}\FloatTok{0.11}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{25}\NormalTok{*}\DecValTok{12}\NormalTok{, -}\FloatTok{1228.60}\NormalTok{, }\DecValTok{0}\NormalTok{) =}\StringTok{ }\DecValTok{125}\NormalTok{,}\FloatTok{352.9}
+\CommentTok{# PV of loan, given 11%, same payments and remaining 25y.}
+
+\DecValTok{135}\NormalTok{,}\FloatTok{204.05} \NormalTok{-}\StringTok{ }\DecValTok{125}\NormalTok{,}\FloatTok{352.9} \NormalTok{=}\StringTok{ }\DecValTok{9}\NormalTok{,}\FloatTok{851.15}
+
+\CommentTok{# 2}
+\CommentTok{# Repayment after 5y}
+
+\NormalTok{=}\KeywordTok{FV}\NormalTok{(}\FloatTok{0.11}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{5}\NormalTok{*}\DecValTok{12}\NormalTok{, -}\FloatTok{1228.60}\NormalTok{, }\FloatTok{125352.9}\NormalTok{) =}\StringTok{ }\NormalTok{-}\DecValTok{119}\NormalTok{,}\FloatTok{028.69}
+\CommentTok{# Loan balance}
+
+\NormalTok{=}\KeywordTok{PV}\NormalTok{(}\FloatTok{0.11}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{5}\NormalTok{*}\DecValTok{12}\NormalTok{, -}\FloatTok{1228.60}\NormalTok{, -}\FloatTok{119028.69}\NormalTok{) =}\StringTok{ }\DecValTok{125}\NormalTok{,}\FloatTok{352.9}
+\CommentTok{# PV of loan is same (given same payment and i)}
+\end{Highlighting}
+\end{Shaded}
 
 \end{frame}
 

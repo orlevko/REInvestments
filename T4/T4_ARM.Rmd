@@ -254,20 +254,35 @@ A borrower can obtain an 80\% loan with an 8\% interest rate and monthly payment
 
 ## Problem 1 answer
 
-1. Marginal cost of borrowing additional 10\%: 8\% Interest on 80\% compared with 8.5\% interest on (80\%+10\%=90\%). Lending additional 10\% is equivalent to:
+\footnotesize
 
-0.08\*80\% + x\*10\% = 0.08\*90\%, or x = 12.5\%.
+```{r book ex6.1, results='hide', eval = FALSE}
+# 1. (assume loan balance = 1,000)
+p1 = PMT(0.08/12, 12*25, -800, 0) = 6.17 monthly
+p2 = PMT(0.085/12, 12*25, -900) = 7.25 monthly
 
-2. Points:
- 
-0.08\*80\% + x\*(10\%-2\%) = 0.08\*90\%, or x = 15.625\%.
+Difference in PV: PV1-PV2 = 100
+Difference in payment: p1-p2 = -1.07
+
+Solve : =12*RATE(25*12, -1.07, 100, 0) = 12.26\%
+
+# 2 Points:
+p1 = PMT(0.08/12, 12*25, -800, 0) = 6.17 monthly
+p2 = PMT(0.085/12, 12*25, -900) = 7.25 monthly
+
+Difference in PV: PV1-PV2 = 100 - 0.02*900
+    = 82
+Difference in payment: p1-p2 = -1.07
+
+Solve : =12*RATE(25*12, -1.07, 82, 0) = 15.35\%
+```
 
 
 ## Problem 1 answer (continued)
 
-3. Early repayment, loan balance after five years (assume loan balance = 1,000):
+3. Early repayment, loan balance after five years:
 
-```{r book ex6.1, results='hide', eval = FALSE}
+```{r book ex6.13, results='hide', eval = FALSE}
 p1 = PMT(0.08/12, 12*25, -800) = 6.17 monthly
 p2 = PMT(0.085/12, 12*25, -900) = 7.25 monthly
 
@@ -298,36 +313,50 @@ b. Would your answer to (1) change if he planned to own the property for only 5 
 ```{r book ex6.3, results='hide', eval = FALSE}
 # 1
 =PMT(0.11/12, 30*12, 95000, 0) = -904.71
-=FV(0.11/12, 5*12, -904.71, 95000) = 92,306.19
-=PMT(0.10/12, 25*12, 92306.19*(1-0.03)*(1.02), 0) =
-  -829.9
+=FV(0.11/12, 5*12, -904.71, 95000) = -92,306.19
+=PMT(0.10/12, 25*12, 92306.19/(1-0.03) + 2000, 0) =
+  -882.9
 
 # 2
-=FV(0.11/12, 10*12, -904.71, 95000) = 87,648.83
-=PMT(0.10/12, 20*12, 87648.83*(1-0.03)*(1.02), 0) = 
-  -836.86
+=FV(0.11/12, 10*12, -904.71, 95000) = -87,648.83
+=PMT(0.10/12, 20*12, 87648.83/(1-0.03) + 2000, 0) = 
+  -891.29
 ```
 
 
 
-## Problem 5 (P.177)
+## Problem 4 (P.177)
 
 \small
+Secondary Mortgage Purchasing Company (SMPC) wants to buy your mortgage from the local savings and loan. The original balance of your mortgage was \$140,000 and was obtained 5 years ago with monthly payments at 10\% interest. The loan was to be fully amortized over 30 years.
 
-You have a choice between the following two identical properties: 
+1. What should SMPC pay if it wants an 11\% return?
+2. How would your answer to (1) change if SMPC expected the loan to be repaid after five years?
 
-- Property A: priced at \$150,000 with 80\% financing at a 10.5\% interest rate for 20 years. 
-- Property B: priced at \$160,000 with an assumable mortgage of \$100,000 at 9\% interest with 20 years remaining. 
 
-Monthly payments are \$899.73. A second mortgage for \$20,000 can be obtained at 13\% interest for 20 years. All loans require monthly payments and are fully amortizing.
+## Problem 4 answer
 
-a. Which property would you choose?
-b. How would your answer change if the seller of Property B provided a second mortgage for \$20,000 at the same 9\% rate as the assumable loan?
-c. How would your answer change if the seller of Property B provided a second mortgage for \$30,000 at the same 9\% rate as the assumable loan so that no additional down payment would be required by the buyer if the loan were assumed?
+\footnotesize
 
-\small
+```{r book ex6.4, results='hide', eval = FALSE}
+# 1
+=PMT(0.10/12, 30*12, 140000, 0) = -1228.60
 
-## Problem 5 answer
+=FV(0.10/12, 5*12, -1228.60, 140000) = -135,204.05
+# Loan balance after 5 years
 
-```{r book ex6.5, results='hide', eval = FALSE}
+=PV(0.11/12, 25*12, -1228.60, 0) = 125,352.9
+# PV of loan, given 11%, same payments and remaining 25y.
+
+135,204.05 - 125,352.9 = 9,851.15
+
+# 2
+# Repayment after 5y
+
+=FV(0.11/12, 5*12, -1228.60, 125352.9) = -119,028.69
+# Loan balance
+
+=PV(0.11/12, 5*12, -1228.60, -119028.69) = 125,352.9
+# PV of loan is same (given same payment and i)
+
 ```
