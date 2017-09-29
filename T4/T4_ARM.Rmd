@@ -303,26 +303,30 @@ Solve : =12*RATE(5*12, -1.07, 100, -96.89) = 12.42\%
 
 An investor obtained a fully amortizing mortgage 5 years ago for $95,000 at 11\% for 30 years. Mortgage rates have dropped, so that a fully amortizing 25-year loan can be obtained at 10\%. There is no prepayment penalty on the mortgage balance of the original loan, but three points will be charged on the new loan and other closing costs will be \$2,000. All payments are monthly.
 
-a. Should the borrower refinance if he plans to own the property for the remaining loan term? Assume that the investor borrows only an amount equal to the outstanding balance of the loan.
-b. Would your answer to (1) change if he planned to own the property for only 5 more years?
+1. Should the borrower refinance if he plans to own the property for the remaining loan term? Assume that the investor borrows only an amount equal to the outstanding balance of the loan.
+2. Would your answer to (1) change if he planned to own the property for only 5 more years?
 
-\small
 
 ## Problem 3 answer
+
+\footnotesize
 
 ```{r book ex6.3, results='hide', eval = FALSE}
 # 1
 =PMT(0.11/12, 30*12, 95000, 0) = -904.71
 =FV(0.11/12, 5*12, -904.71, 95000) = -92,306.19
-=PMT(0.10/12, 25*12, 92306.19/(1-0.03) + 2000, 0) =
-  -882.9
+=PMT(0.10/12, 25*12, 92306.19, 0) =  -838.79
+=12*IRR(92306.19 - 92306.19*0.03 - 2000, -838.79, ...,
+    (25*12 payments) ...,-838.79, 0) = 10.69\%
 
 # 2
 =FV(0.11/12, 10*12, -904.71, 95000) = -87,648.83
-=PMT(0.10/12, 20*12, 87648.83/(1-0.03) + 2000, 0) = 
-  -891.29
+=PMT(0.10/12, 20*12, 87648.83, 0) = -796.47
+=FV(0.10/12, 5*12, -796.47, 87648.83) = -82,533.10
+=12*IRR(87648.83 - 87648.83*0.03 - 2000, -796.47, ...,
+    (5*12 payments) ...,-796.47, -82,533.10) = 11.29\%
+  
 ```
-
 
 
 ## Problem 4 (P.177)

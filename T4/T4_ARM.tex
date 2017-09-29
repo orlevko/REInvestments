@@ -587,7 +587,7 @@ three points will be charged on the new loan and other closing costs
 will be \$2,000. All payments are monthly.
 
 \begin{enumerate}
-\def\labelenumi{\alph{enumi}.}
+\def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
   Should the borrower refinance if he plans to own the property for the
@@ -598,24 +598,27 @@ will be \$2,000. All payments are monthly.
   only 5 more years?
 \end{enumerate}
 
-\small
-
 \end{frame}
 
 \begin{frame}[fragile]{Problem 3 answer}
+
+\footnotesize
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# 1}
 \NormalTok{=}\KeywordTok{PMT}\NormalTok{(}\FloatTok{0.11}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{30}\NormalTok{*}\DecValTok{12}\NormalTok{, }\DecValTok{95000}\NormalTok{, }\DecValTok{0}\NormalTok{) =}\StringTok{ }\NormalTok{-}\FloatTok{904.71}
 \NormalTok{=}\KeywordTok{FV}\NormalTok{(}\FloatTok{0.11}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{5}\NormalTok{*}\DecValTok{12}\NormalTok{, -}\FloatTok{904.71}\NormalTok{, }\DecValTok{95000}\NormalTok{) =}\StringTok{ }\NormalTok{-}\DecValTok{92}\NormalTok{,}\FloatTok{306.19}
-\NormalTok{=}\KeywordTok{PMT}\NormalTok{(}\FloatTok{0.10}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{25}\NormalTok{*}\DecValTok{12}\NormalTok{, }\FloatTok{92306.19}\NormalTok{/(}\DecValTok{1}\FloatTok{-0.03}\NormalTok{) +}\StringTok{ }\DecValTok{2000}\NormalTok{, }\DecValTok{0}\NormalTok{) =}
-\StringTok{  }\NormalTok{-}\FloatTok{882.9}
+\NormalTok{=}\KeywordTok{PMT}\NormalTok{(}\FloatTok{0.10}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{25}\NormalTok{*}\DecValTok{12}\NormalTok{, }\FloatTok{92306.19}\NormalTok{, }\DecValTok{0}\NormalTok{) =}\StringTok{  }\NormalTok{-}\FloatTok{838.79}
+\NormalTok{=}\DecValTok{12}\NormalTok{*}\KeywordTok{IRR}\NormalTok{(}\FloatTok{92306.19} \NormalTok{-}\StringTok{ }\FloatTok{92306.19}\NormalTok{*}\FloatTok{0.03} \NormalTok{-}\StringTok{ }\DecValTok{2000}\NormalTok{, -}\FloatTok{838.79}\NormalTok{, ...,}
+    \NormalTok{(}\DecValTok{25}\NormalTok{*}\DecValTok{12} \NormalTok{payments) ...,-}\FloatTok{838.79}\NormalTok{, }\DecValTok{0}\NormalTok{) =}\StringTok{ }\FloatTok{10.69}\NormalTok{\textbackslash{}%}
 
 \CommentTok{# 2}
 \NormalTok{=}\KeywordTok{FV}\NormalTok{(}\FloatTok{0.11}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{10}\NormalTok{*}\DecValTok{12}\NormalTok{, -}\FloatTok{904.71}\NormalTok{, }\DecValTok{95000}\NormalTok{) =}\StringTok{ }\NormalTok{-}\DecValTok{87}\NormalTok{,}\FloatTok{648.83}
-\NormalTok{=}\KeywordTok{PMT}\NormalTok{(}\FloatTok{0.10}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{20}\NormalTok{*}\DecValTok{12}\NormalTok{, }\FloatTok{87648.83}\NormalTok{/(}\DecValTok{1}\FloatTok{-0.03}\NormalTok{) +}\StringTok{ }\DecValTok{2000}\NormalTok{, }\DecValTok{0}\NormalTok{) =}\StringTok{ }
-\StringTok{  }\NormalTok{-}\FloatTok{891.29}
+\NormalTok{=}\KeywordTok{PMT}\NormalTok{(}\FloatTok{0.10}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{20}\NormalTok{*}\DecValTok{12}\NormalTok{, }\FloatTok{87648.83}\NormalTok{, }\DecValTok{0}\NormalTok{) =}\StringTok{ }\NormalTok{-}\FloatTok{796.47}
+\NormalTok{=}\KeywordTok{FV}\NormalTok{(}\FloatTok{0.10}\NormalTok{/}\DecValTok{12}\NormalTok{, }\DecValTok{5}\NormalTok{*}\DecValTok{12}\NormalTok{, -}\FloatTok{796.47}\NormalTok{, }\FloatTok{87648.83}\NormalTok{) =}\StringTok{ }\NormalTok{-}\DecValTok{82}\NormalTok{,}\FloatTok{533.10}
+\NormalTok{=}\DecValTok{12}\NormalTok{*}\KeywordTok{IRR}\NormalTok{(}\FloatTok{87648.83} \NormalTok{-}\StringTok{ }\FloatTok{87648.83}\NormalTok{*}\FloatTok{0.03} \NormalTok{-}\StringTok{ }\DecValTok{2000}\NormalTok{, -}\FloatTok{796.47}\NormalTok{, ...,}
+    \NormalTok{(}\DecValTok{5}\NormalTok{*}\DecValTok{12} \NormalTok{payments) ...,-}\FloatTok{796.47}\NormalTok{, -}\DecValTok{82}\NormalTok{,}\FloatTok{533.10}\NormalTok{) =}\StringTok{ }\FloatTok{11.29}\NormalTok{\textbackslash{}%}
 \end{Highlighting}
 \end{Shaded}
 
