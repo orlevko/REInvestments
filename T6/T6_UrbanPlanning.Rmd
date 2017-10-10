@@ -21,7 +21,7 @@ table <- readPNG("housing_demand.png", native = TRUE)
 
 ## Urban Planning and Development
 
-
+Factors influencing on housing demand:
 
 ```{r fig, out.width="300 px", echo=FALSE}
 
