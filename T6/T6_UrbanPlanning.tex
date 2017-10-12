@@ -206,30 +206,32 @@ the price per constructed unit.
 
 \begin{frame}{Land valuation under ``real options'' approach (Example)}
 
+Land value = units*(price - cost).
+
 \begin{longtable}[]{@{}llllll@{}}
 \toprule
 Scenario & price & units & costs & Land value & Interest\tabularnewline
 \midrule
 \endhead
-Current & 0.29M & 10 & 0.17M & 1.2M & 4\%\tabularnewline
-Optimistic & 0.33M & 20 & 0.19M & 2.8M & 4\%\tabularnewline
-Pessimistic & 0.29M & 10 & 0.17M & 1.2M & 4\%\tabularnewline
+Current & 0.29M & 10 & 0.17M & 1.20M & 4\%\tabularnewline
+Optimistic & 0.33M & 15 & 0.19M & 2.10M & 4\%\tabularnewline
+Pessimistic & 0.28M & 10 & 0.18M & 1.00M & 4\%\tabularnewline
 \bottomrule
 \end{longtable}
 
 \(2.1 = \alpha*0.33 + \beta*1.04\)
 
-\(1.3 = \alpha*0.29 + \beta*1.04\)
+\(1.0 = \alpha*0.28 + \beta*1.04\)
 
 \footnotesize
 *Note: we assume that the risk-free shares paid interest during the
 year*. \small
 
-\(\alpha = 20\), \(\beta = -4.327\)
+\(\alpha = 22\), \(\beta = -4.9615\)
 
-\(V = 20*0.29 - 4.3275 = 1.4725\)
+\(V = 22*0.29 -4.9615 = 1.4185\)
 
-1.4725M \(>\) 1.2M : Construction in one year is preferred.
+1.4185M \(>\) 1.20M : Construction today is preferred.
 
 \normalsize
 
@@ -318,29 +320,30 @@ and return on each. What do you suggest?
 
 \begin{frame}{Exercise: Real option approach}
 
-\small
+\footnotesize
 
 A land owner is trying to decide whether to develop her land. She
 expects the market to perform at worst and at best as follows:
 
-\begin{longtable}[]{@{}lllll@{}}
+\begin{longtable}[]{@{}llllll@{}}
 \toprule
-Scenario & price & units & costs & Interest\tabularnewline
+Scenario & price & units & costs & Rent (year) & Interest\tabularnewline
 \midrule
 \endhead
-Current & 220K & 10 & 110K & 5\%\tabularnewline
-Optimistic & 250K & 15 & 120K & 5\%\tabularnewline
-Pessimistic & 220K & 10 & 110K & 5\%\tabularnewline
+Current & 220K & 10 & 110K & 8k & 5\%\tabularnewline
+Optimistic & 250K & 15 & 120K & 8k & 5\%\tabularnewline
+Pessimistic & 220K & 10 & 110K & 8k & 5\%\tabularnewline
 \bottomrule
 \end{longtable}
-
-Annual rent of an appartment is 8000 Euro.
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  Calculate the value of land in each scenario.
+  Calculate the value of land today.
+\item
+  calculate the value of the land conditional on realization of each of
+  the two scenarios.
 \item
   Follow the real option approach to calculate the \(\alpha\) and
   \(\beta\) values of the replicate portfolio, assuming no construction.
@@ -445,13 +448,14 @@ borrow any additional funds to renovate the property.
 \begin{Highlighting}[]
 \CommentTok{# 1 }
 
-\KeywordTok{ATCFs} \NormalTok{(today) =}\StringTok{ }\DecValTok{750000}
-\KeywordTok{ATCFs} \NormalTok{(+1Y) =}\StringTok{ }\NormalTok{(}\DecValTok{2400000} \NormalTok{-}\StringTok{ }\DecValTok{900000} \NormalTok{-}\StringTok{ }\DecValTok{255000} \NormalTok{-}\StringTok{ }\DecValTok{250000}\NormalTok{) }
-  \NormalTok{=}\StringTok{ }\DecValTok{995000}
-\KeywordTok{ATCFo} \NormalTok{(+1Y) =}\StringTok{ }\DecValTok{60000}
+\NormalTok{d }\KeywordTok{ATCFs} \NormalTok{(+1Y) =}\StringTok{ }\NormalTok{Additional sale revenue -}\StringTok{ }\NormalTok{Revonvation costs}
+  \NormalTok{=}\StringTok{ }\NormalTok{(}\DecValTok{2400000} \NormalTok{-}\StringTok{ }\DecValTok{2100000}\NormalTok{) -}\StringTok{ }\NormalTok{(}\DecValTok{250000}\NormalTok{) =}\StringTok{ }\DecValTok{50000}
+  
+\NormalTok{d }\KeywordTok{ATCFo} \NormalTok{(+1Y) =}\StringTok{ }\NormalTok{Difference in cash flow }
+  \NormalTok{(}\DecValTok{60000-50000}\NormalTok{) =}\StringTok{ }\DecValTok{10000}
 
 \NormalTok{MRR =}\StringTok{ }
-\NormalTok{(}\DecValTok{995000} \NormalTok{-}\StringTok{ }\DecValTok{750000} \NormalTok{+}\StringTok{ }\DecValTok{60000}\NormalTok{)/}\DecValTok{750000} \NormalTok{=}\StringTok{ }\FloatTok{0.4066}
+\NormalTok{(}\DecValTok{50000} \NormalTok{+}\StringTok{ }\DecValTok{10000}\NormalTok{)/}\DecValTok{250000} \NormalTok{=}\StringTok{ }\FloatTok{0.24}
 \end{Highlighting}
 \end{Shaded}
 
