@@ -72,25 +72,28 @@ Where $V$ is the value of land, $P$ is the price per constructed unit.
 
 ## Land valuation under "real options" approach (Example)
 
+Land value = units*(price - cost).
+
 Scenario   | price  | units | costs  | Land value | Interest
 -----------+--------+-------+--------+------------+---------
-Current    | 0.29M  | 10    | 0.17M  | 1.2M       | 4\%
-Optimistic | 0.33M  | 20    | 0.19M  | 2.8M       | 4\%
-Pessimistic| 0.29M  | 10    | 0.17M  | 1.2M       | 4\%
+Current    | 0.29M  | 10    | 0.17M  | 1.20M       | 4\%
+Optimistic | 0.33M  | 15    | 0.19M  | 2.10M       | 4\%
+Pessimistic| 0.28M  | 10    | 0.18M  | 1.00M       | 4\%
+
 
 $2.1 = \alpha*0.33 + \beta*1.04$
 
-$1.3 = \alpha*0.29 + \beta*1.04$
+$1.0 = \alpha*0.28 + \beta*1.04$
 
 \footnotesize
 *Note: we assume that the risk-free shares paid interest during the year*.
 \small
 
-$\alpha = 20$, $\beta = -4.327$
+$\alpha = 22$, $\beta = -4.9615$
 
-$V = 20*0.29 - 4.3275 = 1.4725$
+$V = 22*0.29 -4.9615 = 1.4185$
 
-1.4725M $>$ 1.2M : Construction in one year is preferred.
+1.4185M $>$ 1.20M : Construction today is preferred.
 
 \normalsize
 
@@ -158,21 +161,21 @@ Riskless is aware that the pattern of returns for Investment II looks very attra
 
 ## Exercise: Real option approach
 
-\small
+\footnotesize
 
 A land owner is trying to decide whether to develop her land. She expects the market to perform at worst and at best as follows:
 
-Scenario   | price  | units | costs  |  Interest
------------+--------+-------+--------+-----------
-Current    | 220K   | 10    | 110K   |   5\%
-Optimistic | 250K   | 15    | 120K   |   5\%
-Pessimistic| 220K   | 10    | 110K   |   5\%
+Scenario   | price  | units | costs  |  Rent (year) | Interest 
+-----------+--------+-------+--------+--------------+---------
+Current    | 220K   | 10    | 110K   |   8k         |    5\%
+Optimistic | 250K   | 15    | 120K   |   8k         |    5\%
+Pessimistic| 220K   | 10    | 110K   |   8k         |    5\%
 
-Annual rent of an appartment is 8000 Euro.
 
-1. Calculate the value of land in each scenario. 
-2. Follow the real option approach to calculate the $\alpha$ and $\beta$ values of the replicate portfolio, assuming no construction. Keep in mind to consider rent payment returns, and interest paid for the risk-free assets in the replicate potfolio.
-3. Calculate the value of the replicate portfolio. What would be the optimal strategy that the developer should follow?
+1. Calculate the value of land today. 
+2. calculate the value of the land conditional on realization of each of the two scenarios.
+3. Follow the real option approach to calculate the $\alpha$ and $\beta$ values of the replicate portfolio, assuming no construction. Keep in mind to consider rent payment returns, and interest paid for the risk-free assets in the replicate potfolio.
+4. Calculate the value of the replicate portfolio. What would be the optimal strategy that the developer should follow?
 
 \normalsize
 
@@ -232,13 +235,14 @@ The owner (from previous problem) determines that if the property were renovated
 ```{r ex2.482, results='hide', eval=FALSE}
 # 1 
 
-ATCFs (today) = 750000
-ATCFs (+1Y) = (2400000 - 900000 - 255000 - 250000) 
-  = 995000
-ATCFo (+1Y) = 60000
+d ATCFs (+1Y) = Additional sale revenue - Revonvation costs
+  = (2400000 - 2100000) - (250000) = 50000
+  
+d ATCFo (+1Y) = Difference in cash flow 
+  (60000-50000) = 10000
 
 MRR = 
-(995000 - 750000 + 60000)/750000 = 0.4066
+(50000 + 10000)/250000 = 0.24
 ```
 
 \normalsize
