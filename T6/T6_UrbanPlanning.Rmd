@@ -93,7 +93,7 @@ $\alpha = 22$, $\beta = -4.9615$
 
 $V = 22*0.29 -4.9615 = 1.4185$
 
-1.4185M $>$ 1.20M : Construction today is preferred.
+1.4185M $>$ 1.20M : Construction in one year is preferred.
 
 \normalsize
 
